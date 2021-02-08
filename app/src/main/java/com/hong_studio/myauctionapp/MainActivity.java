@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hong_studio.myauctionapp.Tab1.Tab1Fragment;
+import com.hong_studio.myauctionapp.Tab2.Tab2Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
