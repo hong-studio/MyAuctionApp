@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.hong_studio.myauctionapp.Tab1.Tab1Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
