@@ -10,7 +10,8 @@
         android:layout_width="280dp"
         android:layout_height="280dp"
         android:src="@drawable/applogo"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:onClick="clickLogo"/>
 
     <TextView
         android:layout_width="wrap_content"
