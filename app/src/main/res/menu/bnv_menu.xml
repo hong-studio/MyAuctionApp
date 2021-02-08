@@ -11,7 +11,7 @@
         android:icon="@drawable/ic_tab2"/>
     <item
         android:id="@+id/bnv_tab3"
-        android:title="경매등록"
+        android:title="상품등록"
         android:icon="@drawable/ic_tab3"/>
     <item
         android:id="@+id/bnv_tab4"
