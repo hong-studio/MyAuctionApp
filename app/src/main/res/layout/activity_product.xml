@@ -14,25 +14,139 @@
         android:background="@color/mainTheme"
         app:menu="@menu/option_menu2"/>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pager"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/toolbar"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
 
-    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-        android:id="@+id/dots_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:dotsColor="#FFBBBBBB"
-        app:dotsCornerRadius="8dp"
-        app:dotsSize="8dp"
-        app:dotsSpacing="4dp"
-        app:dotsWidthFactor="2.5"
-        app:selectedDotColor="@color/mainTheme"
-        app:progressMode="false"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@id/pager"
-        android:layout_marginBottom="8dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dotsColor="#FFBBBBBB"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="8dp"
+                app:dotsSpacing="4dp"
+                app:dotsWidthFactor="2.5"
+                app:selectedDotColor="@color/mainTheme"
+                app:progressMode="false"
+                android:layout_centerHorizontal="true"
+                android:layout_alignBottom="@id/pager"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:id="@+id/layout_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/pager">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/img_profile"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="등록자1"
+                    android:textSize="16sp"
+                    android:textColor="#FF333333"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFDDDDDD"
+                android:layout_below="@id/layout_profile"/>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스웨터"
+                android:textSize="20sp"
+                android:textColor="#FF333333"
+                android:textStyle="bold"
+                android:layout_below="@id/layout_profile"
+                android:layout_margin="16dp"/>
+            <TextView
+                android:id="@+id/tv_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="겨울 스웨터입니다~~ 따뜻해요~~"
+                android:textSize="16sp"
+                android:textColor="#FF333333"
+                android:layout_below="@id/tv_title"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+            <ImageView
+                android:id="@+id/iv_heart"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_heart_border"
+                android:layout_alignTop="@id/tv_title"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"/>
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:30:02"
+                android:textSize="24sp"
+                android:textColor="#FFFF0000"
+                android:layout_below="@id/tv_msg"
+                android:layout_alignRight="@id/iv_heart"
+                android:layout_marginRight="8dp"/>
+
+            <LinearLayout
+                android:id="@+id/layout_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/tv_time"
+                android:layout_marginTop="16dp">
+                <EditText
+                    android:id="@+id/et_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_maintheme"
+                    android:padding="8dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:layout_marginLeft="16dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="원"
+                    android:textSize="16sp"
+                    android:textColor="#FF333333"
+                    android:padding="8dp"
+                    android:layout_marginRight="12dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="입찰"
+                    android:textStyle="bold"
+                    android:layout_marginRight="20dp"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>
