@@ -8,8 +8,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:titleTextColor="#FF333333"
-        app:title="경매내역"/>
+        app:titleTextColor="@color/white"
+        app:title="경매내역"
+        android:background="@color/mainTheme"
+        app:menu="@menu/option_menu"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/layout_tab"

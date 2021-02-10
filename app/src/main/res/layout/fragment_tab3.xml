@@ -9,8 +9,9 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:titleTextColor="#FF333333"
-        app:title="상품등록"/>
+        app:titleTextColor="@color/white"
+        app:title="상품등록"
+        android:background="@color/mainTheme"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
