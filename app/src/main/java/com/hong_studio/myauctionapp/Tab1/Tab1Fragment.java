@@ -1,9 +1,11 @@
 package com.hong_studio.myauctionapp.Tab1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -17,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
 import com.hong_studio.myauctionapp.MainActivity;
+import com.hong_studio.myauctionapp.ProductActivity;
 import com.hong_studio.myauctionapp.R;
 
 public class Tab1Fragment extends Fragment {
@@ -36,6 +39,24 @@ public class Tab1Fragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.option_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.search_menu:
+
+                break;
+
+            case R.id.control_menu:
+
+                break;
+
+            case R.id.bell_menu:
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Nullable
