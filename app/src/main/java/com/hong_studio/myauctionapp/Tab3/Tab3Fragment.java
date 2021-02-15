@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -45,21 +46,17 @@ public class Tab3Fragment extends Fragment {
 
         etMsg= view.findViewById(R.id.et_msg);
         scrollView= view.findViewById(R.id.scrollView);
-        etMsgFocus();
+        etMsgTouch();
     }
 
-    private void etMsgFocus() {
-        etMsg.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+    private void etMsgTouch() {
+        etMsg.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus==true){
-                    scrollView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            scrollView.smoothScrollBy(0, scrollView.getBottom());
-                        }
-                    });
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction()==MotionEvent.ACTION_DOWN){
+                    scrollView.smoothScrollTo(0, scrollView.getScrollY() + etMsg.getHeight());
                 }
+                return false;
             }
         });
     }
