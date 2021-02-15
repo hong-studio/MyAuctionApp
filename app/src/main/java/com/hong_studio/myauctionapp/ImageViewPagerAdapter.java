@@ -40,14 +40,6 @@ public class ImageViewPagerAdapter extends PagerAdapter {
         ImageView iv= page.findViewById(R.id.iv);
         Glide.with(context).load(imgIds.get(position)).into(iv);
 
-        page.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(context, ImageActivity.class);
-                context.startActivity(intent);
-            }
-        });
-
         //ListView는 만든 page를 리턴해 주었지만...
         //만들어낸 page를 ViewPager(container)에 추가해야함
         container.addView(page);
