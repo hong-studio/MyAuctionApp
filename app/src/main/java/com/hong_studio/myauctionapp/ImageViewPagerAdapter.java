@@ -1,6 +1,7 @@
 package com.hong_studio.myauctionapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -35,7 +38,15 @@ public class ImageViewPagerAdapter extends PagerAdapter {
         View page= inflater.inflate(R.layout.page_image, null);
 
         ImageView iv= page.findViewById(R.id.iv);
-        iv.setImageResource(imgIds.get(position));
+        Glide.with(context).load(imgIds.get(position)).into(iv);
+
+        page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(context, ImageActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
         //ListView는 만든 page를 리턴해 주었지만...
         //만들어낸 page를 ViewPager(container)에 추가해야함
