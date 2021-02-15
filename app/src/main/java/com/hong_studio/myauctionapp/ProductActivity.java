@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
@@ -21,25 +25,17 @@ public class ProductActivity extends AppCompatActivity {
     DotsIndicator dotsIndicator;
     ViewPager viewPager;
     ImageViewPagerAdapter adapter;
+    LinearLayout layoutProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
-        MaterialToolbar toolbar= findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+        setToolbar();
         loadData();
-
-        dotsIndicator = findViewById(R.id.dots_indicator);
-        viewPager = findViewById(R.id.pager);
-        adapter = new ImageViewPagerAdapter(this, imgIds);
-        viewPager.setAdapter(adapter);
-        dotsIndicator.setViewPager(viewPager);
+        setViewPagerAndDotsIndicator();
+        setLayoutProfile();
     }
 
     @Override
@@ -58,9 +54,36 @@ public class ProductActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    void loadData(){
+    private void setToolbar() {
+        MaterialToolbar toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+    private void loadData(){
         imgIds.add(R.drawable.img01);
         imgIds.add(R.drawable.img02);
         imgIds.add(R.drawable.img03);
+    }
+
+    private void setViewPagerAndDotsIndicator() {
+        dotsIndicator = findViewById(R.id.dots_indicator);
+        viewPager = findViewById(R.id.pager);
+        adapter = new ImageViewPagerAdapter(this, imgIds);
+        viewPager.setAdapter(adapter);
+        dotsIndicator.setViewPager(viewPager);
+    }
+
+    private void setLayoutProfile() {
+        layoutProfile= findViewById(R.id.layout_profile);
+        layoutProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(ProductActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
