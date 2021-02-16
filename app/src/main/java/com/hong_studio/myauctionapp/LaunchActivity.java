@@ -45,8 +45,13 @@ public class LaunchActivity extends AppCompatActivity {
                         @Override
                         public Unit invoke(User user, Throwable throwable) {
                             if(user != null){
-                                //.............로그인한 계정정보 얻어오기...필요할때 예제보고 추가
+                                long id= user.getId();
+                                String nickName= user.getKakaoAccount().getProfile().getNickname();
+                                String profileImageUrl= user.getKakaoAccount().getProfile().getThumbnailImageUrl();
+
                                 //다음에 접속할때 로그인 다시하지 않으려면 SharedPreference에 로그인정보를 저장해두고 불러오도록 코드 추가...
+                                //카카오로그인데이터를 이용할일이 많기 때문에 Global이나 SharedPreference를 사용해서 데이터 전달...
+
                             }else {
                                 Toast.makeText(LaunchActivity.this, "사용자 정보 요청 실패", Toast.LENGTH_SHORT).show();
                             }
