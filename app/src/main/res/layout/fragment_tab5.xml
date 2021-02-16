@@ -1,16 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:titleTextColor="@color/white"
+        app:title="마이경매"
+        android:background="@color/mainTheme"/>
+
+    <LinearLayout
+        android:id="@+id/layout_profile"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="5번째페이지입니다."
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:orientation="horizontal"
+        android:layout_below="@id/toolbar">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/img_profile"
+            android:scaleType="centerCrop"
+            android:layout_margin="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 닉네임"
+            android:textSize="24sp"
+            android:textColor="#FF333333"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="8dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFDDDDDD"
+        android:layout_below="@id/layout_profile"/>
+    <TextView
+        android:id="@+id/tv01_member"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내 계좌"
+        android:layout_below="@id/line1"
+        android:textSize="16sp"
+        android:textColor="#FF333333"
+        android:padding="16dp"/>
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFDDDDDD"
+        android:layout_below="@id/tv01_member"/>
+    <TextView
+        android:id="@+id/tv02_member"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="앱 설정"
+        android:layout_below="@id/line2"
+        android:textSize="16sp"
+        android:textColor="#FF333333"
+        android:padding="16dp"/>
+    <View
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFDDDDDD"
+        android:layout_below="@id/tv02_member"/>
+    <TextView
+        android:id="@+id/tv03_member"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="고객센터"
+        android:layout_below="@id/line3"
+        android:textSize="16sp"
+        android:textColor="#FF333333"
+        android:padding="16dp"/>
+    <View
+        android:id="@+id/line4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFDDDDDD"
+        android:layout_below="@id/tv03_member"/>
+    <TextView
+        android:id="@+id/tv04_member"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그아웃"
+        android:layout_below="@id/line4"
+        android:textSize="16sp"
+        android:textColor="#FF333333"
+        android:padding="16dp"/>
+    <View
+        android:id="@+id/line5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFDDDDDD"
+        android:layout_below="@id/tv04_member"/>
+    <TextView
+        android:id="@+id/tv05_member"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원탈퇴"
+        android:layout_below="@id/line5"
+        android:textSize="16sp"
+        android:textColor="#FF333333"
+        android:padding="16dp"/>
+    <View
+        android:id="@+id/line6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFDDDDDD"
+        android:layout_below="@id/tv05_member"/>
 
 </RelativeLayout>

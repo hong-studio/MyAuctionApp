@@ -14,6 +14,7 @@ import com.hong_studio.myauctionapp.Tab1.Tab1Fragment;
 import com.hong_studio.myauctionapp.Tab2.Tab2Fragment;
 import com.hong_studio.myauctionapp.Tab3.Tab3Fragment;
 import com.hong_studio.myauctionapp.Tab4.Tab4Fragment;
+import com.hong_studio.myauctionapp.Tab5.Tab5Fragment;
 
 public class MainActivity extends AppCompatActivity {
 

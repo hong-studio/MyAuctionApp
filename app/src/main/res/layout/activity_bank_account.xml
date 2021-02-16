@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Tab5.BankAccountActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:titleTextColor="@color/white"
+        app:title="내 계좌"
+        android:background="@color/mainTheme"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_maintheme"
+                android:layout_margin="16dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_bankName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="우리은행"
+                    android:textSize="24sp"
+                    android:textColor="#FF333333"/>
+                <TextView
+                    android:id="@+id/tv_bankAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1002738972945"
+                    android:layout_below="@id/tv_bankName"
+                    android:layout_alignLeft="@id/tv_bankName"/>
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="402,390원"
+                    android:textSize="16sp"
+                    android:textColor="#FF333333"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@id/tv_bankAccount"/>
+                <Button
+                    android:id="@+id/btn_registerMainAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_bankAccount"
+                    android:text="주거래 계좌등록"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:backgroundTint="#4CAF50"
+                    android:layout_marginTop="16dp"/>
+                <Button
+                    android:id="@+id/btn_deleteAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_bankAccount"
+                    android:text="삭제"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:backgroundTint="#FFFF0000"
+                    android:layout_alignTop="@id/btn_registerMainAccount"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textSize="24sp"
+                android:layout_margin="16dp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
