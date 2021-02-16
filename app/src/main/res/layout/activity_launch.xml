@@ -7,8 +7,8 @@
     tools:context=".LaunchActivity">
 
     <ImageView
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:src="@drawable/applogo"
         android:layout_centerInParent="true"
         android:onClick="clickLogo"/>
@@ -19,6 +19,6 @@
         android:text="Hong Studio"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="16dp"/>
 
 </RelativeLayout>
