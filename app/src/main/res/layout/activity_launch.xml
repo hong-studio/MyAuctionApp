@@ -7,11 +7,22 @@
     tools:context=".LaunchActivity">
 
     <ImageView
+        android:id="@+id/appLogo"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:src="@drawable/applogo"
         android:layout_centerInParent="true"
         android:onClick="clickLogo"/>
+    
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/kakao_login_medium_narrow"
+        android:layout_below="@id/appLogo"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="16dp"
+        android:onClick="clickKakaoLogin"/>
 
     <TextView
         android:layout_width="wrap_content"
