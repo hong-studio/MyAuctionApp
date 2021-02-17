@@ -37,7 +37,8 @@
             android:layout_height="wrap_content"
             android:text="로그인 없이 시작"
             android:textColor="@color/mainTheme"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="12dp"
+            android:onClick="clickWithoutLogin"/>
 
     </LinearLayout>
 

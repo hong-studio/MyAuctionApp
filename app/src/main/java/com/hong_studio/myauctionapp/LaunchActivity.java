@@ -45,7 +45,6 @@ public class LaunchActivity extends AppCompatActivity {
         findViewById(R.id.layout_loginBtn).startAnimation(AnimationUtils.loadAnimation(this, R.anim.loginbutton_anim));
     }
 
-
     public void clickKakaoLogin(View view) {
         LoginClient.getInstance().loginWithKakaoTalk(this, new Function2<OAuthToken, Throwable, Unit>() {
             @Override
@@ -81,5 +80,11 @@ public class LaunchActivity extends AppCompatActivity {
                 return null;
             }
         });
+    }
+
+    public void clickWithoutLogin(View view) {
+        Intent intent= new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

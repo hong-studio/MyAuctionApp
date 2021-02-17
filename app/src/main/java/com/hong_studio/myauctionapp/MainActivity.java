@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hong_studio.myauctionapp.Tab1.Tab1Fragment;
@@ -86,5 +87,18 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    private long backBtnTime = 0;
+    @Override
+    public void onBackPressed() {
+        long curTime = System.currentTimeMillis();
+        long gapTime = curTime - backBtnTime;
+        if(0 <= gapTime && 2000 >= gapTime) {
+            super.onBackPressed();
+        }else {
+            backBtnTime = curTime;
+            Toast.makeText(this, "한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
+        }
     }
 }
