@@ -11,18 +11,35 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:src="@drawable/applogo"
-        android:layout_centerInParent="true"
-        android:onClick="clickLogo"/>
-    
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/kakao_login_medium_narrow"
-        android:layout_below="@id/appLogo"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
-        android:layout_marginTop="16dp"
-        android:onClick="clickKakaoLogin"/>
+        android:layout_marginTop="230dp"/>
+
+    <LinearLayout
+        android:id="@+id/layout_loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/appLogo"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_kakaoLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/kakao_login_medium_narrow"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="16dp"
+            android:onClick="clickKakaoLogin"/>
+
+        <TextView
+            android:id="@+id/btn_withoutLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인 없이 시작"
+            android:textColor="@color/mainTheme"
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"

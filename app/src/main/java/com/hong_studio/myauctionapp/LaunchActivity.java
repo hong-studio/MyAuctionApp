@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.kakao.sdk.auth.LoginClient;
 import com.kakao.sdk.auth.model.OAuthToken;
-import com.kakao.sdk.common.util.Utility;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
 
@@ -23,12 +23,28 @@ public class LaunchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
+
+        animation();
     }
 
-    public void clickLogo(View view) {
-        Intent intent= new Intent(this, MainActivity.class);
-        startActivity(intent);
+    private long backBtnTime = 0;
+    @Override
+    public void onBackPressed() {
+        long curTime = System.currentTimeMillis();
+        long gapTime = curTime - backBtnTime;
+        if(0 <= gapTime && 2000 >= gapTime) {
+            super.onBackPressed();
+        }else {
+            backBtnTime = curTime;
+            Toast.makeText(this, "한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
+        }
     }
+
+    private void animation() {
+        findViewById(R.id.appLogo).startAnimation(AnimationUtils.loadAnimation(this, R.anim.applogo_anim));
+        findViewById(R.id.layout_loginBtn).startAnimation(AnimationUtils.loadAnimation(this, R.anim.loginbutton_anim));
+    }
+
 
     public void clickKakaoLogin(View view) {
         LoginClient.getInstance().loginWithKakaoTalk(this, new Function2<OAuthToken, Throwable, Unit>() {
@@ -60,7 +76,7 @@ public class LaunchActivity extends AppCompatActivity {
                     });
 
                 }else {
-                    Toast.makeText(LaunchActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LaunchActivity.this, "로그인 실패"+throwable.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 return null;
             }
