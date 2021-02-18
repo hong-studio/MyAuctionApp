@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -102,7 +103,6 @@ public class ProductActivity extends AppCompatActivity {
                     Glide.with(ProductActivity.this).load(R.drawable.ic_heart_border).into(ivHeart);
                     isClicked= 0;
                 }
-
             }
         });
     }

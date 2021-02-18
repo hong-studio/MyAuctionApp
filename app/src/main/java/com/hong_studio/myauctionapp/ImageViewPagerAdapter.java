@@ -43,7 +43,7 @@ public class ImageViewPagerAdapter extends PagerAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(context, ImageActivity.class);
-
+                intent.putExtra("imgPosition", position);
                 context.startActivity(intent);
             }
         });

@@ -39,5 +39,8 @@ public class ImageActivity extends AppCompatActivity {
         adapter = new ImageViewPagerAdapterForImageActivity(this, imgIds);
         photoViewPager.setAdapter(adapter);
         dotsIndicator.setViewPager(photoViewPager);
+
+        int position= getIntent().getIntExtra("imgPosition", 0);
+        photoViewPager.setCurrentItem(position);
     }
 }
