@@ -1,7 +1,9 @@
 package com.hong_studio.myauctionapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,15 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
+import com.github.chrisbanes.photoview.PhotoView;
 
 import java.util.ArrayList;
 
-public class ImageViewPagerAdapter extends PagerAdapter {
+public class ImageViewPagerAdapterForImageActivity extends PagerAdapter {
 
     Context context;
     ArrayList<Integer> imgIds;
 
-    public ImageViewPagerAdapter(Context context, ArrayList<Integer> imgIds) {
+    public ImageViewPagerAdapterForImageActivity(Context context, ArrayList<Integer> imgIds) {
         this.context = context;
         this.imgIds = imgIds;
     }
@@ -33,23 +36,20 @@ public class ImageViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
-        LayoutInflater inflater= LayoutInflater.from(context);
-        View page= inflater.inflate(R.layout.page_image, null);
+//        LayoutInflater inflater= LayoutInflater.from(context);
+//        View page= inflater.inflate(R.layout.page_imageactivity, null);
+//        ImageView iv= page.findViewById(R.id.iv);
+//        Glide.with(context).load(imgIds.get(position)).into(iv);
+//        container.addView(page);
+//        return page;
 
-        ImageView iv= page.findViewById(R.id.iv);
-        Glide.with(context).load(imgIds.get(position)).into(iv);
-
-        page.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(context, ImageActivity.class);
-
-                context.startActivity(intent);
-            }
-        });
-
-        container.addView(page);
-        return page;
+        PhotoView photoView = new PhotoView(container.getContext());
+        Glide.with(context).load(imgIds.get(position)).into(photoView);
+        photoView.setMaximumScale(5.0F);
+        photoView.setMediumScale(3.0F);
+//        container.addView(photoView, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        container.addView(photoView);
+        return photoView;
     }
 
     //ViewPager에서 제거해야 할 page를 제거하는 메소드
