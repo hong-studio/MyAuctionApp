@@ -2,10 +2,13 @@ package com.hong_studio.myauctionapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -79,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        //동적퍼미션
+        String[] permissions= new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if(ActivityCompat.checkSelfPermission(this, permissions[0]) == PackageManager.PERMISSION_DENIED){
+            ActivityCompat.requestPermissions(this, permissions, 100);
+        }
     }
 
     private long backBtnTime = 0;

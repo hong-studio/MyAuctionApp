@@ -43,7 +43,8 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_marginTop="8dp"
-                        android:src="@drawable/ic_camera"/>
+                        android:src="@drawable/ic_camera"
+                        android:onClick="clickIvCamera"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -69,10 +70,10 @@
                 android:layout_height="1dp"
                 android:background="#FFDDDDDD"/>
             <EditText
-                android:id="@+id/et_title"
+                android:id="@+id/et_productName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="제목"
+                android:hint="상품명"
                 android:textSize="20sp"
                 android:padding="16dp"
                 android:background="@drawable/bg_et_register"

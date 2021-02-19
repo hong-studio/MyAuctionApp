@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
+import com.hong_studio.myauctionapp.Activities.ImageActivity;
 
 import java.util.ArrayList;
 
