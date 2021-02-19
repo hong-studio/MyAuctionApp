@@ -16,9 +16,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
-import com.hong_studio.myauctionapp.MainActivity;
+import com.hong_studio.myauctionapp.Activities.MainActivity;
 import com.hong_studio.myauctionapp.R;
-import com.hong_studio.myauctionapp.Tab1.Tab1PagerAdapter;
 
 public class Tab2Fragment extends Fragment {
 

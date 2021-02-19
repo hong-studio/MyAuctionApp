@@ -12,16 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAuctionApp">
-        <activity android:name=".UploadActivity"></activity>
+        <activity android:name=".Activities.UploadActivity"></activity>
         <activity android:name=".ImageActivity" />
         <activity android:name=".Tab5.MemberOutActivity" />
         <activity android:name=".Tab5.CustomerCenterActivity" />
         <activity android:name=".Tab5.SettingActivity" />
         <activity android:name=".Tab5.BankAccountActivity" />
         <activity android:name=".Tab5.MyProfileActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".ProductActivity" />
-        <activity android:name=".LaunchActivity">
+        <activity android:name=".Activities.ProfileActivity" />
+        <activity android:name=".Activities.ProductActivity" />
+        <activity android:name=".Activities.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>

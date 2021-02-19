@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp;
+package com.hong_studio.myauctionapp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.hong_studio.myauctionapp.R;
 import com.kakao.sdk.auth.LoginClient;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;

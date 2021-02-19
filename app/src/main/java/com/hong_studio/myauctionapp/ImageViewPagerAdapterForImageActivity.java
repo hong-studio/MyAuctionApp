@@ -36,18 +36,10 @@ public class ImageViewPagerAdapterForImageActivity extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
-//        LayoutInflater inflater= LayoutInflater.from(context);
-//        View page= inflater.inflate(R.layout.page_imageactivity, null);
-//        ImageView iv= page.findViewById(R.id.iv);
-//        Glide.with(context).load(imgIds.get(position)).into(iv);
-//        container.addView(page);
-//        return page;
-
         PhotoView photoView = new PhotoView(container.getContext());
         Glide.with(context).load(imgIds.get(position)).into(photoView);
         photoView.setMaximumScale(5.0F);
         photoView.setMediumScale(3.0F);
-//        container.addView(photoView, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         container.addView(photoView);
         return photoView;
     }

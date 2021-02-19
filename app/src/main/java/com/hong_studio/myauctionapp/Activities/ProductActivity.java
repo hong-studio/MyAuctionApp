@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp;
+package com.hong_studio.myauctionapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.hong_studio.myauctionapp.ImageViewPagerAdapterForProductActivity;
+import com.hong_studio.myauctionapp.R;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class ProductActivity extends AppCompatActivity {
     ArrayList<Integer> imgIds= new ArrayList<>();
     DotsIndicator dotsIndicator;
     ViewPager viewPager;
-    ImageViewPagerAdapter adapter;
+    ImageViewPagerAdapterForProductActivity adapter;
     LinearLayout layoutProfile;
     ImageView ivHeart;
 
@@ -74,7 +75,7 @@ public class ProductActivity extends AppCompatActivity {
     private void setViewPagerAndDotsIndicator() {
         dotsIndicator = findViewById(R.id.dots_indicator);
         viewPager = findViewById(R.id.pager);
-        adapter = new ImageViewPagerAdapter(this, imgIds);
+        adapter = new ImageViewPagerAdapterForProductActivity(this, imgIds);
         viewPager.setAdapter(adapter);
         dotsIndicator.setViewPager(viewPager);
     }

@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp;
+package com.hong_studio.myauctionapp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.hong_studio.myauctionapp.ImageViewPagerAdapterForImageActivity;
+import com.hong_studio.myauctionapp.PhotoViewPager;
+import com.hong_studio.myauctionapp.R;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.ArrayList;

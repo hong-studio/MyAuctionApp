@@ -12,9 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.hong_studio.myauctionapp.ProductActivity;
+import com.hong_studio.myauctionapp.Activities.ProductActivity;
 import com.hong_studio.myauctionapp.R;
-import com.hong_studio.myauctionapp.Tab2.Tab2RecyclerItem;
 
 import java.util.ArrayList;
 

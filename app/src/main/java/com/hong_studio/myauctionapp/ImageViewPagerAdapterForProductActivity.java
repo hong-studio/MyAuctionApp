@@ -14,12 +14,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class ImageViewPagerAdapter extends PagerAdapter {
+public class ImageViewPagerAdapterForProductActivity extends PagerAdapter {
 
     Context context;
     ArrayList<Integer> imgIds;
 
-    public ImageViewPagerAdapter(Context context, ArrayList<Integer> imgIds) {
+    public ImageViewPagerAdapterForProductActivity(Context context, ArrayList<Integer> imgIds) {
         this.context = context;
         this.imgIds = imgIds;
     }

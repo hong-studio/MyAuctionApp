@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp;
+package com.hong_studio.myauctionapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -14,9 +14,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.hong_studio.myauctionapp.R;
 
 public class UploadActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp;
+package com.hong_studio.myauctionapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.Tab1.Tab1Fragment;
 import com.hong_studio.myauctionapp.Tab2.Tab2Fragment;
 import com.hong_studio.myauctionapp.Tab4.Tab4Fragment;

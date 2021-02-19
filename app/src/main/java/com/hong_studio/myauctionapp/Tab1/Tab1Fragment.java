@@ -12,17 +12,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
-import com.hong_studio.myauctionapp.MainActivity;
-import com.hong_studio.myauctionapp.ProductActivity;
+import com.hong_studio.myauctionapp.Activities.MainActivity;
 import com.hong_studio.myauctionapp.R;
-import com.hong_studio.myauctionapp.UploadActivity;
+import com.hong_studio.myauctionapp.Activities.UploadActivity;
 
 public class Tab1Fragment extends Fragment {
 

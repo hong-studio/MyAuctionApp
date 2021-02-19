@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UploadActivity">
+    tools:context=".Activities.UploadActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -27,25 +27,40 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/layout_camera"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/ic_camera"/>
-                <TextView
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/layout_camera"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1/10"
-                    android:textColor="#FF333333"
-                    android:textSize="16sp"
-                    android:layout_gravity="center"/>
+                    android:padding="8dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="92dp"
+                        android:layout_height="92dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/ic_camera"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1/10"
+                        android:textColor="#FF333333"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_upload"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/img01"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_vertical"/>
+
             </LinearLayout>
 
             <View
