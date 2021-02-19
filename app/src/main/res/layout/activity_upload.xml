@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".UploadActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -66,15 +68,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#FFDDDDDD"/>
-            <TextView
-                android:id="@+id/tv_category"
+
+            <LinearLayout
+                android:id="@+id/layout_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="카테고리"
-                android:textSize="20sp"
-                android:textColor="#FF333333"
-                android:padding="16dp"
-                android:background="@drawable/bg_et_register"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="카테고리"
+                    android:textSize="20sp"
+                    android:textColor="#FF333333"
+                    android:padding="16dp"
+                    android:background="@drawable/bg_et_register"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_down"/>
+
+            </LinearLayout>
 
             <View
                 android:id="@+id/line3"

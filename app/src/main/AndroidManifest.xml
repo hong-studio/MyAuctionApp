@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAuctionApp">
-        <activity android:name=".ImageActivity"></activity>
+        <activity android:name=".UploadActivity"></activity>
+        <activity android:name=".ImageActivity" />
         <activity android:name=".Tab5.MemberOutActivity" />
         <activity android:name=".Tab5.CustomerCenterActivity" />
         <activity android:name=".Tab5.SettingActivity" />

@@ -17,10 +17,12 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.hong_studio.myauctionapp.MainActivity;
 import com.hong_studio.myauctionapp.ProductActivity;
 import com.hong_studio.myauctionapp.R;
+import com.hong_studio.myauctionapp.UploadActivity;
 
 public class Tab1Fragment extends Fragment {
 
@@ -28,6 +30,7 @@ public class Tab1Fragment extends Fragment {
     TabLayout tabLayout;
     ViewPager pager;
     Tab1PagerAdapter pagerAdapter;
+    FloatingActionButton btnFAB;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,6 +75,15 @@ public class Tab1Fragment extends Fragment {
         //여기서 xml의 뷰들에 대한 find 참조.
         toolbar= view.findViewById(R.id.toolbar);
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+
+        btnFAB= view.findViewById(R.id.btn_fab);
+        btnFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getActivity(), UploadActivity.class);
+                startActivity(intent);
+            }
+        });
 
         tabLayout= view.findViewById(R.id.layout_tab);
         pager= view.findViewById(R.id.pager);

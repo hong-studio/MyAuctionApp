@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.hong_studio.myauctionapp.Tab1.Tab1Fragment;
 import com.hong_studio.myauctionapp.Tab2.Tab2Fragment;
-import com.hong_studio.myauctionapp.Tab3.Tab3Fragment;
 import com.hong_studio.myauctionapp.Tab4.Tab4Fragment;
 import com.hong_studio.myauctionapp.Tab5.Tab5Fragment;
 
@@ -57,14 +56,6 @@ public class MainActivity extends AppCompatActivity {
                             tran.add(R.id.container, fragments[1]);
                         }
                         tran.show(fragments[1]);
-                        break;
-
-                    case R.id.bnv_tab3:
-                        if(fragments[2]==null){
-                            fragments[2]= new Tab3Fragment();
-                            tran.add(R.id.container, fragments[2]);
-                        }
-                        tran.show(fragments[2]);
                         break;
 
                     case R.id.bnv_tab4:
