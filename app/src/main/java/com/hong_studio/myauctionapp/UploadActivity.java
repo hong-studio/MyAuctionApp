@@ -38,17 +38,7 @@ public class UploadActivity extends AppCompatActivity {
         scrollView= findViewById(R.id.scrollView);
         layoutCategory= findViewById(R.id.layout_category);
         tvCategory= findViewById(R.id.tv_category);
-        layoutCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new AlertDialog.Builder(UploadActivity.this).setItems(categories, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        tvCategory.setText(categories[which]);
-                    }
-                }).create().show();
-            }
-        });
+        onClickCategory();
 
         etMsg= findViewById(R.id.et_msg);
         etMsgTouch();
@@ -75,6 +65,20 @@ public class UploadActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
+    }
+
+    private void onClickCategory() {
+        layoutCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(UploadActivity.this).setItems(categories, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        tvCategory.setText(categories[which]);
+                    }
+                }).create().show();
+            }
+        });
     }
 
     private void etMsgTouch() {
