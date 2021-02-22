@@ -46,6 +46,8 @@ public class ProductActivity extends AppCompatActivity {
         setViewPagerAndDotsIndicator();
         setLayoutProfile();
 
+        //findViewByID...
+
         onClickHeart();
     }
 
