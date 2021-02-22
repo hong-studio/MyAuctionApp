@@ -4,21 +4,30 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
+import com.hong_studio.myauctionapp.RetrofitHelper;
+import com.hong_studio.myauctionapp.RetrofitService;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class Tab2Page2Fragment extends Fragment {
 
-    ArrayList<Tab2RecyclerItem> items= new ArrayList<>();
+    ArrayList<Item> items= new ArrayList<>();
     RecyclerView recyclerView;
-    Tab2RecyclerAdapter recyclerAdapter;
+    Tab2Page2RecyclerAdapter recyclerAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,14 +46,35 @@ public class Tab2Page2Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView= view.findViewById(R.id.recycler);
-        recyclerAdapter= new Tab2RecyclerAdapter(getActivity(), items);
+        recyclerAdapter= new Tab2Page2RecyclerAdapter(getActivity(), items);
         recyclerView.setAdapter(recyclerAdapter);
     }
 
     void loadData(){
         //일단은 더미데이터
-        items.add(new Tab2RecyclerItem(R.drawable.img04, "앱 기획서", "등록자 4", "10:29:32"));
-        items.add(new Tab2RecyclerItem(R.drawable.img05, "커피잔", "등록자 5", "03:12:11"));
-        items.add(new Tab2RecyclerItem(R.drawable.img06, "책", "등록자 6", "22:02:54"));
+//        items.add(new Tab2RecyclerItem(R.drawable.img04, "앱 기획서", "등록자 4", "10:29:32"));
+//        items.add(new Tab2RecyclerItem(R.drawable.img05, "커피잔", "등록자 5", "03:12:11"));
+//        items.add(new Tab2RecyclerItem(R.drawable.img06, "책", "등록자 6", "22:02:54"));
+        Retrofit retrofit= RetrofitHelper.getRetrofitInstanceGson();
+        RetrofitService retrofitService= retrofit.create(RetrofitService.class);
+        Call<ArrayList<Item>> call= retrofitService.loadDataFromServer();
+        call.enqueue(new Callback<ArrayList<Item>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Item>> call, Response<ArrayList<Item>> response) {
+                items.clear();
+                recyclerAdapter.notifyDataSetChanged();
+
+                ArrayList<Item> list= response.body();
+                for(Item item : list){
+                    items.add(0, item);
+                    recyclerAdapter.notifyItemInserted(0);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Item>> call, Throwable t) {
+                Toast.makeText(getActivity(), "error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
