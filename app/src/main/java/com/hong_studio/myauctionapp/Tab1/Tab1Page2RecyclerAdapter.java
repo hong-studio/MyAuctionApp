@@ -1,6 +1,7 @@
 package com.hong_studio.myauctionapp.Tab1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hong_studio.myauctionapp.Activities.ProductActivity;
 import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
 import com.squareup.picasso.Picasso;
@@ -65,6 +67,14 @@ public class Tab1Page2RecyclerAdapter extends RecyclerView.Adapter<Tab1Page2Recy
             tvMemberName= itemView.findViewById(R.id.tv_memberName);
             tvTime= itemView.findViewById(R.id.tv_time);
             ivFavor= itemView.findViewById(R.id.iv_favor);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent= new Intent(context, ProductActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
