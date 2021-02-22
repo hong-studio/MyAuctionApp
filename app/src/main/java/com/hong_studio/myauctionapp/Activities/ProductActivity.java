@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -20,6 +21,8 @@ import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ProductActivity extends AppCompatActivity {
 
     ArrayList<Integer> imgIds= new ArrayList<>();
@@ -27,7 +30,11 @@ public class ProductActivity extends AppCompatActivity {
     ViewPager viewPager;
     ImageViewPagerAdapterForProductActivity adapter;
     LinearLayout layoutProfile;
-    ImageView ivHeart;
+
+    CircleImageView ivProfile;
+    TextView tvMemberName, tvProductName, tvCategory, tvMsg;
+    ImageView ivFavor;
+    TextView tvTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,16 +99,16 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void onClickHeart() {
-        ivHeart= findViewById(R.id.iv_heart);
-        ivHeart.setOnClickListener(new View.OnClickListener() {
+        ivFavor= findViewById(R.id.iv_favor);
+        ivFavor.setOnClickListener(new View.OnClickListener() {
             int isClicked= 0;
             @Override
             public void onClick(View v) {
                 if(isClicked==0){
-                    Glide.with(ProductActivity.this).load(R.drawable.ic_heart_filled).into(ivHeart);
+                    Glide.with(ProductActivity.this).load(R.drawable.ic_heart_filled).into(ivFavor);
                     isClicked= 1;
                 } else if(isClicked==1){
-                    Glide.with(ProductActivity.this).load(R.drawable.ic_heart_border).into(ivHeart);
+                    Glide.with(ProductActivity.this).load(R.drawable.ic_heart_border).into(ivFavor);
                     isClicked= 0;
                 }
             }

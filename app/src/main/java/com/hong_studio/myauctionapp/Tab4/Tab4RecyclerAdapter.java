@@ -66,7 +66,7 @@ public class Tab4RecyclerAdapter extends RecyclerView.Adapter {
             tvTitle= itemView.findViewById(R.id.tv_title);
             tvUser= itemView.findViewById(R.id.tv_user);
             tvTime= itemView.findViewById(R.id.tv_time);
-            ivHeart= itemView.findViewById(R.id.iv_heart);
+//            ivHeart= itemView.findViewById(R.id.iv_heart);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
