@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
@@ -16,7 +18,8 @@ public interface RetrofitService {
     @Multipart
     @POST("/Retrofit/insertDB.php")
     Call<String> postDataToServer(@PartMap Map<String, String> dataPart,
-                                  @Part MultipartBody.Part filePart);
+                                  @Part MultipartBody.Part filePart, @Part MultipartBody.Part filePart2);
+
 
     @GET("/Retrofit/loadDB.php")
     Call<ArrayList<Item>> loadDataFromServer();

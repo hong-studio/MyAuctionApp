@@ -58,7 +58,8 @@ public class UploadActivity extends AppCompatActivity {
                                       "반려동물용품", "도서/티켓/음반", "식물", "기타 상품"};
     TextView tvCategory;
     EditText etProductName, etPrice, etMsg;
-    String memberName, profileImgUrl;
+    String memberName;
+    String profileImgUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,6 +156,13 @@ public class UploadActivity extends AppCompatActivity {
                     filePart= MultipartBody.Part.createFormData("img", file.getName(), requestBody);
                 }
 
+                MultipartBody.Part filePart2= null;
+                if(imgPath!=null){
+                    File file= new File(imgPath);
+                    RequestBody requestBody= RequestBody.create(MediaType.parse("image/*"), file);
+                    filePart2= MultipartBody.Part.createFormData("profileImg", profileImgUrl, requestBody);
+                }
+
                 Map<String, String> dataPart= new HashMap<>();
                 dataPart.put("productName", productName);
                 dataPart.put("category", category);
@@ -162,7 +170,7 @@ public class UploadActivity extends AppCompatActivity {
                 dataPart.put("msg", msg);
                 dataPart.put("memberName", memberName);
 
-                Call<String> call= retrofitService.postDataToServer(dataPart, filePart);
+                Call<String> call= retrofitService.postDataToServer(dataPart, filePart, filePart2);
                 call.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
