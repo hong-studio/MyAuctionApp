@@ -25,10 +25,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.hong_studio.myauctionapp.G;
+import com.hong_studio.myauctionapp.KakaoApplication;
 import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.RetrofitHelper;
 import com.hong_studio.myauctionapp.RetrofitService;
 import com.hong_studio.myauctionapp.Tab5.MyProfileActivity;
+import com.kakao.sdk.common.util.KakaoJson;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
 
@@ -58,8 +61,6 @@ public class UploadActivity extends AppCompatActivity {
                                       "반려동물용품", "도서/티켓/음반", "식물", "기타 상품"};
     TextView tvCategory;
     EditText etProductName, etPrice, etMsg;
-    String memberName;
-    String profileImgUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,17 +136,6 @@ public class UploadActivity extends AppCompatActivity {
                 String price= etPrice.getText().toString();
                 String msg= etMsg.getText().toString();
 
-                UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
-                    @Override
-                    public Unit invoke(User user, Throwable throwable) {
-                        if(user!=null){
-                            memberName= user.getKakaoAccount().getProfile().getNickname();
-                            profileImgUrl= user.getKakaoAccount().getProfile().getThumbnailImageUrl();
-                        }
-                        return null;
-                    }
-                });
-
                 Retrofit retrofit= RetrofitHelper.getRetrofitInstanceScalars();
                 RetrofitService retrofitService= retrofit.create(RetrofitService.class);
 
@@ -156,21 +146,22 @@ public class UploadActivity extends AppCompatActivity {
                     filePart= MultipartBody.Part.createFormData("img", file.getName(), requestBody);
                 }
 
-                MultipartBody.Part filePart2= null;
-                if(imgPath!=null){
-                    File file= new File(imgPath);
-                    RequestBody requestBody= RequestBody.create(MediaType.parse("image/*"), file);
-                    filePart2= MultipartBody.Part.createFormData("profileImg", profileImgUrl, requestBody);
-                }
+//                MultipartBody.Part filePart2= null;
+//                if(imgPath!=null){
+//                    File file= new File(imgPath);
+//                    RequestBody requestBody= RequestBody.create(MediaType.parse("image/*"), file);
+//                    filePart2= MultipartBody.Part.createFormData("profileImg", file.getName(), requestBody);
+//                }
 
                 Map<String, String> dataPart= new HashMap<>();
                 dataPart.put("productName", productName);
                 dataPart.put("category", category);
                 dataPart.put("price", price);
                 dataPart.put("msg", msg);
-                dataPart.put("memberName", memberName);
+                dataPart.put("memberName", G.memberName);
+                dataPart.put("profileImg", G.profileImgUrl);
 
-                Call<String> call= retrofitService.postDataToServer(dataPart, filePart, filePart2);
+                Call<String> call= retrofitService.postDataToServer(dataPart, filePart);
                 call.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {

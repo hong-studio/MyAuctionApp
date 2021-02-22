@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
+import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.R;
 import com.kakao.sdk.auth.LoginClient;
 import com.kakao.sdk.auth.model.OAuthToken;
@@ -61,8 +62,8 @@ public class LaunchActivity extends AppCompatActivity {
                         public Unit invoke(User user, Throwable throwable) {
                             if(user != null){
                                 long id= user.getId();
-                                String nickName= user.getKakaoAccount().getProfile().getNickname();
-                                String profileImageUrl= user.getKakaoAccount().getProfile().getThumbnailImageUrl();
+                                G.memberName= user.getKakaoAccount().getProfile().getNickname();
+                                G.profileImgUrl= user.getKakaoAccount().getProfile().getThumbnailImageUrl();
 
                                 //다음에 접속할때 로그인 다시하지 않으려면 SharedPreference에 로그인정보를 저장해두고 불러오도록 코드 추가...
                                 //카카오로그인데이터를 이용할일이 많기 때문에 Global이나 SharedPreference를 사용해서 데이터 전달...
