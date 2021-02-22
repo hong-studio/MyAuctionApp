@@ -16,12 +16,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Tab1RecyclerAdapter extends RecyclerView.Adapter<Tab1RecyclerAdapter.VH> {
+public class Tab1Page2RecyclerAdapter extends RecyclerView.Adapter<Tab1Page2RecyclerAdapter.VH> {
 
     Context context;
     ArrayList<Item> items;
 
-    public Tab1RecyclerAdapter(Context context, ArrayList<Item> items) {
+    public Tab1Page2RecyclerAdapter(Context context, ArrayList<Item> items) {
         this.context = context;
         this.items = items;
     }

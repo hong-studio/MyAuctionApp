@@ -9,7 +9,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
@@ -27,7 +29,7 @@ public class Tab1Page2Fragment extends Fragment {
 
     ArrayList<Item> items= new ArrayList<>();
     RecyclerView recyclerView;
-    Tab1RecyclerAdapter recyclerAdapter;
+    Tab1Page2RecyclerAdapter recyclerAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class Tab1Page2Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView= view.findViewById(R.id.recycler);
-        recyclerAdapter= new Tab1RecyclerAdapter(getActivity(), items);
+        recyclerAdapter= new Tab1Page2RecyclerAdapter(getActivity(), items);
         recyclerView.setAdapter(recyclerAdapter);
     }
 
