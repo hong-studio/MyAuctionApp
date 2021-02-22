@@ -97,15 +97,20 @@ public class ProductActivity extends AppCompatActivity {
         call.enqueue(new Callback<ArrayList<Item>>() {
             @Override
             public void onResponse(Call<ArrayList<Item>> call, Response<ArrayList<Item>> response) {
-                items.clear();
+
                 Glide.with(ProductActivity.this).load(G.profileImgUrl).into(ivProfileImg);
                 tvMemberName.setText(G.memberName);
 
                 ArrayList<Item> list= response.body();
                 for(Item item : list){
-                    items.add(0, item);
-
+                    String productImgUrl= "http://hongstudio.dothome.co.kr/Retrofit/"+item.productImg;
+                    Glide.with(ProductActivity.this).load(productImgUrl).into(ivProductImg);
+                    tvProductName.setText(item.productName);
+                    tvCategory.setText(item.category);
+                    tvMsg.setText(item.msg);
+                    tvTime.setText(item.time);
                 }
+
             }
 
             @Override
