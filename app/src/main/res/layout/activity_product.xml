@@ -85,6 +85,14 @@
                 android:layout_below="@id/layout_profile"
                 android:layout_margin="16dp"/>
             <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="카테고리"
+                android:layout_alignBottom="@id/tv_title"
+                android:layout_toRightOf="@id/tv_title"
+                android:layout_margin="2dp"/>
+            <TextView
                 android:id="@+id/tv_msg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
