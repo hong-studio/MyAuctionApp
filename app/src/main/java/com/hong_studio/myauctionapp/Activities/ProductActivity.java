@@ -12,26 +12,33 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.hong_studio.myauctionapp.ImageViewPagerAdapterForProductActivity;
+import com.hong_studio.myauctionapp.G;
+import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
+import com.hong_studio.myauctionapp.RetrofitHelper;
+import com.hong_studio.myauctionapp.RetrofitService;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ProductActivity extends AppCompatActivity {
 
-    ArrayList<Integer> imgIds= new ArrayList<>();
-    DotsIndicator dotsIndicator;
-    ViewPager viewPager;
-    ImageViewPagerAdapterForProductActivity adapter;
+    ArrayList<Item> items= new ArrayList<>();
+
     LinearLayout layoutProfile;
 
-    CircleImageView ivProfile;
+    ImageView ivProductImg;
+    CircleImageView ivProfileImg;
     TextView tvMemberName, tvProductName, tvCategory, tvMsg;
     ImageView ivFavor;
     TextView tvTime;
@@ -43,10 +50,18 @@ public class ProductActivity extends AppCompatActivity {
 
         setToolbar();
         loadData();
-        setViewPagerAndDotsIndicator();
-        setLayoutProfile();
 
         //findViewByID...
+        ivProductImg= findViewById(R.id.iv_productImg);
+        ivProfileImg= findViewById(R.id.iv_profileImg);
+        tvMemberName= findViewById(R.id.tv_memberName);
+        tvProductName= findViewById(R.id.tv_productName);
+        tvCategory= findViewById(R.id.tv_category);
+        tvMsg= findViewById(R.id.tv_msg);
+        tvTime= findViewById(R.id.tv_time);
+
+        onClickProductImg();
+        setLayoutProfile();
 
         onClickHeart();
     }
@@ -76,17 +91,38 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void loadData(){
-        imgIds.add(R.drawable.img01);
-        imgIds.add(R.drawable.img02);
-        imgIds.add(R.drawable.img03);
+        Retrofit retrofit= RetrofitHelper.getRetrofitInstanceGson();
+        RetrofitService retrofitService= retrofit.create(RetrofitService.class);
+        Call<ArrayList<Item>> call= retrofitService.loadDataFromServer();
+        call.enqueue(new Callback<ArrayList<Item>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Item>> call, Response<ArrayList<Item>> response) {
+                items.clear();
+                Glide.with(ProductActivity.this).load(G.profileImgUrl).into(ivProfileImg);
+                tvMemberName.setText(G.memberName);
+
+                ArrayList<Item> list= response.body();
+                for(Item item : list){
+                    items.add(0, item);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Item>> call, Throwable t) {
+                Toast.makeText(ProductActivity.this, "error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    private void setViewPagerAndDotsIndicator() {
-        dotsIndicator = findViewById(R.id.dots_indicator);
-        viewPager = findViewById(R.id.pager);
-        adapter = new ImageViewPagerAdapterForProductActivity(this, imgIds);
-        viewPager.setAdapter(adapter);
-        dotsIndicator.setViewPager(viewPager);
+    private void onClickProductImg() {
+        ivProductImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(ProductActivity.this, ImageActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setLayoutProfile() {
