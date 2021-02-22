@@ -1,15 +1,15 @@
 package com.hong_studio.myauctionapp;
 
 public class Item {
-    String memberName;
-    String productName;
-    String category;
-    String price;
-    String msg;
-    String productImg;
-    String profileImg;
-    String time;
-    int favor;
+    public String memberName;
+    public String productName;
+    public String category;
+    public String price;
+    public String msg;
+    public String productImg;
+    public String profileImg;
+    public String time;
+    public int favor;
 
     public Item() {
     }

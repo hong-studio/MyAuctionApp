@@ -58,7 +58,6 @@
                     android:id="@+id/iv_upload"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/img01"
                     android:scaleType="centerCrop"
                     android:layout_gravity="center_vertical"/>
 

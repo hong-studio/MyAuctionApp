@@ -30,7 +30,7 @@ public class Tab2RecyclerAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView= LayoutInflater.from(context).inflate(R.layout.recycler_item, parent, false);
+        View itemView= LayoutInflater.from(context).inflate(R.layout.recycler_item_tab1page2, parent, false);
         VH vh= new VH(itemView);
         return vh;
     }

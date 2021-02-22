@@ -17,4 +17,7 @@ public interface RetrofitService {
     @POST("/Retrofit/insertDB.php")
     Call<String> postDataToServer(@PartMap Map<String, String> dataPart,
                                   @Part MultipartBody.Part filePart);
+
+    @GET("/Retrofit/loadDB.php")
+    Call<ArrayList<Item>> loadDataFromServer();
 }

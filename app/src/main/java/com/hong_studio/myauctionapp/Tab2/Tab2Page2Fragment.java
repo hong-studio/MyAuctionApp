@@ -11,8 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hong_studio.myauctionapp.R;
-import com.hong_studio.myauctionapp.Tab1.Tab1RecyclerAdapter;
-import com.hong_studio.myauctionapp.Tab1.Tab1RecyclerItem;
 
 import java.util.ArrayList;
 
