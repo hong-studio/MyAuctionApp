@@ -5,7 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RetrofitHelper {
-    static String baseUrl= "http://hongstudio.dothome.co.kr/";
+    public static String baseUrl= "http://hongstudio.dothome.co.kr/";
+    public static String baseUrlRetrofitFolder= "http://hongstudio.dothome.co.kr/Retrofit/";
 
     public static Retrofit getRetrofitInstanceGson(){
         Retrofit.Builder builder= new Retrofit.Builder();

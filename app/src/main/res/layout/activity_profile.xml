@@ -29,9 +29,10 @@
             android:scaleType="centerCrop"
             android:layout_margin="16dp"/>
         <TextView
+            android:id="@+id/tv_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="등록자1"
+            android:text="닉네임"
             android:textSize="24sp"
             android:textColor="#FF333333"
             android:layout_gravity="center_vertical"

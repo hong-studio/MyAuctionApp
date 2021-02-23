@@ -4,12 +4,23 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.gson.Gson;
+import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
+import com.hong_studio.myauctionapp.RetrofitHelper;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
+
+    CircleImageView ivProfile;
+    TextView tvNickname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +31,15 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
+
+        ivProfile= findViewById(R.id.iv_profile);
+        tvNickname= findViewById(R.id.tv_nickname);
+
+        //인텐트로 데이터 가져와서 세팅
+        String profileImgUrl= getIntent().getStringExtra("profileImg");
+        String memberName= getIntent().getStringExtra("memberName");
+        Glide.with(this).load(profileImgUrl).into(ivProfile);
+        tvNickname.setText(memberName);
     }
 
     @Override

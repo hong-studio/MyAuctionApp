@@ -43,7 +43,6 @@ public class ProductActivity extends AppCompatActivity {
     TextView tvMemberName, tvProductName, tvCategory, tvMsg;
     ImageView ivFavor;
     TextView tvTime;
-    String baseUrl= "http://hongstudio.dothome.co.kr/Retrofit/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,8 @@ public class ProductActivity extends AppCompatActivity {
 
         setToolbar();
 
-        //findViewByID...
+        //findViewById...
+        layoutProfile= findViewById(R.id.layout_profile);
         ivProductImg= findViewById(R.id.iv_productImg);
         ivProfileImg= findViewById(R.id.iv_profileImg);
         tvMemberName= findViewById(R.id.tv_memberName);
@@ -62,9 +62,8 @@ public class ProductActivity extends AppCompatActivity {
         tvTime= findViewById(R.id.tv_time);
 
         loadDataAndSetData();
-
         onClickProductImg();
-        setLayoutProfile();
+        onClickLayoutProfile();
 
         onClickHeart();
     }
@@ -73,15 +72,44 @@ public class ProductActivity extends AppCompatActivity {
         String jsonStr= getIntent().getStringExtra("item");
         Item item= new Gson().fromJson(jsonStr, Item.class);
 
-        Glide.with(this).load(baseUrl+item.productImg).into(ivProductImg);
+        Glide.with(this).load(RetrofitHelper.baseUrlRetrofitFolder+item.productImg).into(ivProductImg);
         Glide.with(this).load(item.profileImg).into(ivProfileImg);
-        Log.i("productImg", item.productImg);
-        Log.i("profileImg",item.profileImg);
+//        Log.i("productImg", item.productImg);
+//        Log.i("profileImg",item.profileImg);
         tvMemberName.setText(item.memberName);
         tvProductName.setText(item.productName);
         tvCategory.setText(item.category);
         tvMsg.setText(item.msg);
         tvTime.setText(item.time);
+    }
+
+    private void onClickProductImg() {
+        ivProductImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String jsonStr= getIntent().getStringExtra("item");
+                Item item= new Gson().fromJson(jsonStr, Item.class);
+
+                Intent intent= new Intent(ProductActivity.this, ImageActivity.class);
+                intent.putExtra("productImg", item.productImg);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void onClickLayoutProfile() {
+        layoutProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String jsonStr= getIntent().getStringExtra("item");
+                Item item= new Gson().fromJson(jsonStr, Item.class);
+
+                Intent intent= new Intent(ProductActivity.this, ProfileActivity.class);
+                intent.putExtra("profileImg", item.profileImg);
+                intent.putExtra("memberName", item.memberName);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -106,27 +134,6 @@ public class ProductActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-    }
-
-    private void onClickProductImg() {
-        ivProductImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(ProductActivity.this, ImageActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void setLayoutProfile() {
-        layoutProfile= findViewById(R.id.layout_profile);
-        layoutProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(ProductActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void onClickHeart() {

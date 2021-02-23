@@ -3,10 +3,13 @@ package com.hong_studio.myauctionapp.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.hong_studio.myauctionapp.R;
+import com.hong_studio.myauctionapp.RetrofitHelper;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.ArrayList;
@@ -22,10 +25,7 @@ public class ImageActivity extends AppCompatActivity {
 
         photoView= findViewById(R.id.photoView);
 
-        loadData();
-    }
-
-    private void loadData(){
-        //...
+        String productImgUrl= RetrofitHelper.baseUrlRetrofitFolder + getIntent().getStringExtra("productImg");
+        Glide.with(this).load(productImgUrl).into(photoView);
     }
 }
