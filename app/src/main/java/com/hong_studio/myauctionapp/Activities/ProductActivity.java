@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.gson.Gson;
 import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
@@ -33,8 +36,6 @@ import retrofit2.Retrofit;
 
 public class ProductActivity extends AppCompatActivity {
 
-    ArrayList<Item> items= new ArrayList<>();
-
     LinearLayout layoutProfile;
 
     ImageView ivProductImg;
@@ -42,6 +43,7 @@ public class ProductActivity extends AppCompatActivity {
     TextView tvMemberName, tvProductName, tvCategory, tvMsg;
     ImageView ivFavor;
     TextView tvTime;
+    String baseUrl= "http://hongstudio.dothome.co.kr/Retrofit/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,6 @@ public class ProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product);
 
         setToolbar();
-        loadData();
 
         //findViewByID...
         ivProductImg= findViewById(R.id.iv_productImg);
@@ -60,10 +61,27 @@ public class ProductActivity extends AppCompatActivity {
         tvMsg= findViewById(R.id.tv_msg);
         tvTime= findViewById(R.id.tv_time);
 
+        loadDataAndSetData();
+
         onClickProductImg();
         setLayoutProfile();
 
         onClickHeart();
+    }
+
+    private void loadDataAndSetData() {
+        String jsonStr= getIntent().getStringExtra("item");
+        Item item= new Gson().fromJson(jsonStr, Item.class);
+
+        Glide.with(this).load(baseUrl+item.productImg).into(ivProductImg);
+        Glide.with(this).load(item.profileImg).into(ivProfileImg);
+        Log.i("productImg", item.productImg);
+        Log.i("profileImg",item.profileImg);
+        tvMemberName.setText(item.memberName);
+        tvProductName.setText(item.productName);
+        tvCategory.setText(item.category);
+        tvMsg.setText(item.msg);
+        tvTime.setText(item.time);
     }
 
     @Override
@@ -88,36 +106,6 @@ public class ProductActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-    }
-
-    private void loadData(){
-        Retrofit retrofit= RetrofitHelper.getRetrofitInstanceGson();
-        RetrofitService retrofitService= retrofit.create(RetrofitService.class);
-        Call<ArrayList<Item>> call= retrofitService.loadDataFromServer();
-        call.enqueue(new Callback<ArrayList<Item>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Item>> call, Response<ArrayList<Item>> response) {
-
-                Glide.with(ProductActivity.this).load(G.profileImgUrl).into(ivProfileImg);
-                tvMemberName.setText(G.memberName);
-
-                ArrayList<Item> list= response.body();
-                for(Item item : list){
-                    String productImgUrl= "http://hongstudio.dothome.co.kr/Retrofit/"+item.productImg;
-                    Glide.with(ProductActivity.this).load(productImgUrl).into(ivProductImg);
-                    tvProductName.setText(item.productName);
-                    tvCategory.setText(item.category);
-                    tvMsg.setText(item.msg);
-                    tvTime.setText(item.time);
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Item>> call, Throwable t) {
-                Toast.makeText(ProductActivity.this, "error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void onClickProductImg() {
