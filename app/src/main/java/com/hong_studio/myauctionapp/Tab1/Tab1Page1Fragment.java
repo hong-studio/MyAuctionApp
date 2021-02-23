@@ -67,7 +67,8 @@ public class Tab1Page1Fragment extends Fragment {
                 ArrayList<Item> list= response.body();
                 for(Item item : list){
                     items.add(0, item);
-                    recyclerAdapter.notifyItemInserted(0);
+//                    items.add(item);
+                    recyclerAdapter.notifyItemInserted(items.size()-1);
                 }
             }
 
