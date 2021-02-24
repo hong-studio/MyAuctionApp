@@ -122,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        bnv.setSelectedItemId(R.id.bnv_tab1);
+        if(G.memberName==null){
+            bnv.setSelectedItemId(R.id.bnv_tab1);
+        }
     }
 }

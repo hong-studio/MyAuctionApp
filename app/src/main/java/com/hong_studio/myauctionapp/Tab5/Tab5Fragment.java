@@ -95,6 +95,10 @@ public class Tab5Fragment extends Fragment {
     }
 
     private void setLayoutProfile(@NonNull View view) {
+        if(G.memberName!=null){
+            Glide.with(getActivity()).load(G.profileImgUrl).into(ivProfile);
+            tvNickname.setText(G.memberName);
+        }
         layoutProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

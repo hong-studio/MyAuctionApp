@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.hong_studio.myauctionapp.Activities.ProductActivity;
 import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
@@ -71,7 +72,12 @@ public class Tab2Page1RecyclerAdapter extends RecyclerView.Adapter<Tab2Page1Recy
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Item item= items.get(getLayoutPosition());
+                    Gson gson= new Gson();
+                    String jsonStr= gson.toJson(item); //객체-->json문자열로 변환
+
                     Intent intent= new Intent(context, ProductActivity.class);
+                    intent.putExtra("item", jsonStr);
                     context.startActivity(intent);
                 }
             });
