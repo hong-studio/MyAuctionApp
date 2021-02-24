@@ -8,12 +8,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.Tab1.Tab1Fragment;
 import com.hong_studio.myauctionapp.Tab2.Tab2Fragment;
@@ -23,7 +25,7 @@ import com.hong_studio.myauctionapp.Tab5.Tab5Fragment;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bnv;
-    Fragment[] fragments= new Fragment[5];
+    Fragment[] fragments= new Fragment[4];
     FragmentManager fragmentManager;
 
     @Override
@@ -47,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 if(fragments[1]!=null) tran.hide(fragments[1]);
                 if(fragments[2]!=null) tran.hide(fragments[2]);
                 if(fragments[3]!=null) tran.hide(fragments[3]);
-                if(fragments[4]!=null) tran.hide(fragments[4]);
 
                 switch (item.getItemId()){
                     case R.id.bnv_tab1:
@@ -55,27 +56,42 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.bnv_tab2:
-                        if(fragments[1]==null){
-                            fragments[1]= new Tab2Fragment();
-                            tran.add(R.id.container, fragments[1]);
+                        if(G.memberName!=null){
+                            if(fragments[1]==null) {
+                                fragments[1]= new Tab2Fragment();
+                                tran.add(R.id.container, fragments[1]);
+                            }
+                            tran.show(fragments[1]);
+                        } else if(G.memberName==null){
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                            Toast.makeText(MainActivity.this, "로그인이 필요합니다", Toast.LENGTH_SHORT).show();
                         }
-                        tran.show(fragments[1]);
+                        break;
+
+                    case R.id.bnv_tab3:
+                        if(G.memberName!=null){
+                            if(fragments[2]==null) {
+                                fragments[2]= new Tab4Fragment();
+                                tran.add(R.id.container, fragments[2]);
+                            }
+                            tran.show(fragments[2]);
+                        } else if(G.memberName==null){
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                            Toast.makeText(MainActivity.this, "로그인이 필요합니다", Toast.LENGTH_SHORT).show();
+                        }
                         break;
 
                     case R.id.bnv_tab4:
-                        if(fragments[3]==null){
-                            fragments[3]= new Tab4Fragment();
-                            tran.add(R.id.container, fragments[3]);
+                        if(G.memberName!=null){
+                            if(fragments[3]==null) {
+                                fragments[3]= new Tab5Fragment();
+                                tran.add(R.id.container, fragments[3]);
+                            }
+                            tran.show(fragments[3]);
+                        } else if(G.memberName==null){
+                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                            Toast.makeText(MainActivity.this, "로그인이 필요합니다", Toast.LENGTH_SHORT).show();
                         }
-                        tran.show(fragments[3]);
-                        break;
-
-                    case R.id.bnv_tab5:
-                        if(fragments[4]==null){
-                            fragments[4]= new Tab5Fragment();
-                            tran.add(R.id.container, fragments[4]);
-                        }
-                        tran.show(fragments[4]);
                         break;
                 }
                 tran.commit();
@@ -101,5 +117,11 @@ public class MainActivity extends AppCompatActivity {
             backBtnTime = curTime;
             Toast.makeText(this, "한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bnv.setSelectedItemId(R.id.bnv_tab1);
     }
 }

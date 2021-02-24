@@ -12,18 +12,17 @@
         app:title="마이경매"
         android:background="@color/mainTheme"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout_profile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="130dp"
         android:layout_below="@id/toolbar">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_profile"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_tab5"
+            android:src="@drawable/ic_tab4"
             android:scaleType="centerCrop"
             android:layout_margin="16dp"/>
         <TextView
@@ -33,10 +32,12 @@
             android:text="닉네임"
             android:textSize="24sp"
             android:textColor="#FF333333"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="8dp"/>
+            android:layout_toRightOf="@id/iv_profile"
+            android:layout_alignTop="@id/iv_profile"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <View
         android:id="@+id/line1"

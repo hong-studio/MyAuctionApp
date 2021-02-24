@@ -6,13 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.hong_studio.myauctionapp.Activities.LoginActivity;
+import com.hong_studio.myauctionapp.Activities.UploadActivity;
+import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.R;
 import com.kakao.sdk.common.KakaoSdk;
 import com.kakao.sdk.user.UserApiClient;
@@ -24,7 +29,7 @@ import kotlin.jvm.functions.Function2;
 
 public class Tab5Fragment extends Fragment {
 
-    LinearLayout layoutProfile;
+    RelativeLayout layoutProfile;
     CircleImageView ivProfile;
     TextView tvNickname;
     TextView tv01Member, tv02Member, tv03Member, tv04Member, tv05Member;
@@ -39,7 +44,10 @@ public class Tab5Fragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setProfileAndNickname(view);
+        ivProfile= view.findViewById(R.id.iv_profile);
+        tvNickname= view.findViewById(R.id.tv_nickname);
+        layoutProfile= view.findViewById(R.id.layout_profile);
+        setLayoutProfile(view);
 
         tv01Member= view.findViewById(R.id.tv01_member);
         tv01Member.setOnClickListener(new View.OnClickListener() {
@@ -86,22 +94,7 @@ public class Tab5Fragment extends Fragment {
         });
     }
 
-    private void setProfileAndNickname(@NonNull View view) {
-        ivProfile= view.findViewById(R.id.iv_profile);
-        tvNickname= view.findViewById(R.id.tv_nickname);
-        UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
-            @Override
-            public Unit invoke(User user, Throwable throwable) {
-                if(user!=null){
-                    String nickname= user.getKakaoAccount().getProfile().getNickname();
-                    String profileImgUrl= user.getKakaoAccount().getProfile().getThumbnailImageUrl();
-                    tvNickname.setText(nickname);
-                    Glide.with(getActivity()).load(profileImgUrl).into(ivProfile);
-                }
-                return null;
-            }
-        });
-        layoutProfile= view.findViewById(R.id.layout_profile);
+    private void setLayoutProfile(@NonNull View view) {
         layoutProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

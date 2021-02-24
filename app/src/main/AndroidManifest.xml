@@ -3,7 +3,6 @@
     package="com.hong_studio.myauctionapp">
     <!-- 인터넷 사용 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
 
@@ -16,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAuctionApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.UploadActivity"></activity>
+        <activity android:name=".Activities.LoginActivity"></activity>
+        <activity android:name=".Activities.UploadActivity" />
         <activity android:name=".Activities.ImageActivity" />
         <activity android:name=".Tab5.MemberOutActivity" />
         <activity android:name=".Tab5.CustomerCenterActivity" />

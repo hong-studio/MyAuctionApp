@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +19,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.hong_studio.myauctionapp.Activities.LoginActivity;
 import com.hong_studio.myauctionapp.Activities.MainActivity;
+import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.Activities.UploadActivity;
 
@@ -75,13 +78,7 @@ public class Tab1Fragment extends Fragment {
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
 
         btnFAB= view.findViewById(R.id.btn_fab);
-        btnFAB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(getActivity(), UploadActivity.class);
-                startActivity(intent);
-            }
-        });
+        onClickFAB();
 
         tabLayout= view.findViewById(R.id.layout_tab);
         pager= view.findViewById(R.id.pager);
@@ -90,5 +87,20 @@ public class Tab1Fragment extends Fragment {
 
         //탭레이아웃과 뷰페이저를 연동
         tabLayout.setupWithViewPager(pager);
+    }
+
+    private void onClickFAB() {
+        btnFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(G.memberName!=null){
+                    Intent intent= new Intent(getActivity(), UploadActivity.class);
+                    startActivity(intent);
+                } else if(G.memberName==null){
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                    Toast.makeText(getActivity(), "로그인이 필요합니다", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

@@ -25,7 +25,7 @@
             android:id="@+id/iv_profile"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/img_profile"
+            android:src="@drawable/ic_tab4"
             android:scaleType="centerCrop"
             android:layout_margin="16dp"/>
         <TextView
