@@ -160,6 +160,7 @@ public class UploadActivity extends AppCompatActivity {
                     public void onResponse(Call<String> call, Response<String> response) {
                         String s= response.body();
                         Toast.makeText(UploadActivity.this, ""+s, Toast.LENGTH_SHORT).show();
+                        finish();
                     }
 
                     @Override
@@ -167,7 +168,6 @@ public class UploadActivity extends AppCompatActivity {
                         Toast.makeText(UploadActivity.this, "error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-                finish();
 
                 break;
         }
