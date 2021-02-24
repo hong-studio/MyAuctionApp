@@ -25,6 +25,10 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
+        if(G.memberName!=null){
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+        }
         animation();
     }
 
