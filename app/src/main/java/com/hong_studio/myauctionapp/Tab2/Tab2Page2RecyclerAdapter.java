@@ -7,12 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.hong_studio.myauctionapp.Activities.LoginActivity;
 import com.hong_studio.myauctionapp.Activities.ProductActivity;
+import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
 import com.squareup.picasso.Picasso;
@@ -79,6 +83,25 @@ public class Tab2Page2RecyclerAdapter extends RecyclerView.Adapter<Tab2Page2Recy
                     Intent intent= new Intent(context, ProductActivity.class);
                     intent.putExtra("item", jsonStr);
                     context.startActivity(intent);
+                }
+            });
+
+            ivFavor.setOnClickListener(new View.OnClickListener() {
+                int isClicked= 0;
+                @Override
+                public void onClick(View v) {
+                    if(G.memberName!=null){
+                        if(isClicked==0){
+                            Glide.with(context).load(R.drawable.ic_heart_filled).into(ivFavor);
+                            isClicked= 1;
+                        } else if(isClicked==1){
+                            Glide.with(context).load(R.drawable.ic_heart_border).into(ivFavor);
+                            isClicked= 0;
+                        }
+                    } else if(G.memberName==null){
+                        context.startActivity(new Intent(context, LoginActivity.class));
+                        Toast.makeText(context, "로그인이 필요합니다", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
