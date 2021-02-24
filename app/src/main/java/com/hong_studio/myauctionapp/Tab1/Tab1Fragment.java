@@ -1,5 +1,7 @@
 package com.hong_studio.myauctionapp.Tab1;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +21,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.hong_studio.myauctionapp.Activities.CategoryActivity;
 import com.hong_studio.myauctionapp.Activities.LoginActivity;
 import com.hong_studio.myauctionapp.Activities.MainActivity;
 import com.hong_studio.myauctionapp.G;
@@ -53,8 +56,9 @@ public class Tab1Fragment extends Fragment {
                 break;
 
             case R.id.control_menu:
-
-                break;
+//                Intent intent= new Intent(getActivity(), CategoryActivity.class);
+//                startActivityForResult(intent, 10);
+//                break;
 
             case R.id.bell_menu:
 
@@ -62,6 +66,25 @@ public class Tab1Fragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
+//    String[] checked= new String[14];
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        switch (requestCode){
+//            case 10:
+//                if(resultCode== Activity.RESULT_OK){
+//                    for(int i=0; i<checked.length; i++){
+//                        checked[i]= data.getStringExtra("checkbox"+(i+1));
+//                    }
+//
+//                    pagerAdapter.pages[0].
+//                } else {
+//                    Toast.makeText(getActivity(), "카테고리 설정 오류가 발생했습니다", Toast.LENGTH_SHORT).show();
+//                }
+//                break;
+//        }
+//    }
 
     @Nullable
     @Override
