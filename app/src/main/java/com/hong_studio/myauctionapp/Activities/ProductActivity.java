@@ -142,12 +142,17 @@ public class ProductActivity extends AppCompatActivity {
             int isClicked= 0;
             @Override
             public void onClick(View v) {
-                if(isClicked==0){
-                    Glide.with(ProductActivity.this).load(R.drawable.ic_heart_filled).into(ivFavor);
-                    isClicked= 1;
-                } else if(isClicked==1){
-                    Glide.with(ProductActivity.this).load(R.drawable.ic_heart_border).into(ivFavor);
-                    isClicked= 0;
+                if(G.memberName!=null){
+                    if(isClicked==0){
+                        Glide.with(ProductActivity.this).load(R.drawable.ic_heart_filled).into(ivFavor);
+                        isClicked= 1;
+                    } else if(isClicked==1){
+                        Glide.with(ProductActivity.this).load(R.drawable.ic_heart_border).into(ivFavor);
+                        isClicked= 0;
+                    }
+                } else if(G.memberName==null){
+                    startActivity(new Intent(ProductActivity.this, LoginActivity.class));
+                    Toast.makeText(ProductActivity.this, "로그인이 필요합니다", Toast.LENGTH_SHORT).show();
                 }
             }
         });
