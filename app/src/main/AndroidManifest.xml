@@ -18,11 +18,11 @@
         <activity android:name=".Activities.LoginActivity"></activity>
         <activity android:name=".Activities.UploadActivity" />
         <activity android:name=".Activities.ImageActivity" />
-        <activity android:name=".Tab5.MemberOutActivity" />
-        <activity android:name=".Tab5.CustomerCenterActivity" />
-        <activity android:name=".Tab5.SettingActivity" />
-        <activity android:name=".Tab5.BankAccountActivity" />
-        <activity android:name=".Tab5.MyProfileActivity" />
+        <activity android:name=".Tab4.MemberOutActivity" />
+        <activity android:name=".Tab4.CustomerCenterActivity" />
+        <activity android:name=".Tab4.SettingActivity" />
+        <activity android:name=".Tab4.BankAccountActivity" />
+        <activity android:name=".Tab4.MyProfileActivity" />
         <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".Activities.ProductActivity" />
         <activity android:name=".Activities.LaunchActivity">

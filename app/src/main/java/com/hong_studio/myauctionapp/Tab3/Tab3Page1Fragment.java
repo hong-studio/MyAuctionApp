@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp.Tab4;
+package com.hong_studio.myauctionapp.Tab3;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,11 +14,11 @@ import com.hong_studio.myauctionapp.R;
 
 import java.util.ArrayList;
 
-public class Tab4Page1Fragment extends Fragment {
+public class Tab3Page1Fragment extends Fragment {
 
-    ArrayList<Tab4RecyclerItem> items= new ArrayList<>();
+    ArrayList<Tab3RecyclerItem> items= new ArrayList<>();
     RecyclerView recyclerView;
-    Tab4RecyclerAdapter recyclerAdapter;
+    Tab3RecyclerAdapter recyclerAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class Tab4Page1Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.page1_tab4, container, false);
+        return inflater.inflate(R.layout.page1_tab3, container, false);
     }
 
     @Override
@@ -37,13 +37,13 @@ public class Tab4Page1Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView= view.findViewById(R.id.recycler);
-        recyclerAdapter= new Tab4RecyclerAdapter(getActivity(), items);
+        recyclerAdapter= new Tab3RecyclerAdapter(getActivity(), items);
         recyclerView.setAdapter(recyclerAdapter);
     }
 
     void loadData(){
         //일단은 더미데이터
-        items.add(new Tab4RecyclerItem(R.drawable.img02, "아기옷", "등록자 2", "20:53:15"));
-        items.add(new Tab4RecyclerItem(R.drawable.img03, "컴퓨터", "등록자 3", "07:20:47"));
+        items.add(new Tab3RecyclerItem(R.drawable.img02, "아기옷", "등록자 2", "20:53:15"));
+        items.add(new Tab3RecyclerItem(R.drawable.img03, "컴퓨터", "등록자 3", "07:20:47"));
     }
 }

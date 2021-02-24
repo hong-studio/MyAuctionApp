@@ -26,21 +26,14 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.hong_studio.myauctionapp.G;
-import com.hong_studio.myauctionapp.KakaoApplication;
 import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.RetrofitHelper;
 import com.hong_studio.myauctionapp.RetrofitService;
-import com.hong_studio.myauctionapp.Tab5.MyProfileActivity;
-import com.kakao.sdk.common.util.KakaoJson;
-import com.kakao.sdk.user.UserApiClient;
-import com.kakao.sdk.user.model.User;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;

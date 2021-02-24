@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp.Tab4;
+package com.hong_studio.myauctionapp.Tab3;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -6,16 +6,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class Tab4PagerAdapter extends FragmentPagerAdapter {
+public class Tab3PagerAdapter extends FragmentPagerAdapter {
 
     Fragment[] pages= new Fragment[2];
     String[] titles= new String[]{"등록한 상품", "입찰한 상품"};
 
-    public Tab4PagerAdapter(@NonNull FragmentManager fm, int behavior) {
+    public Tab3PagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
 
-        pages[0]= new Tab4Page1Fragment();
-        pages[1]= new Tab4Page2Fragment();
+        pages[0]= new Tab3Page1Fragment();
+        pages[1]= new Tab3Page2Fragment();
     }
 
     @NonNull

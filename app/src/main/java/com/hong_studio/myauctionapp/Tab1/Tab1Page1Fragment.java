@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
@@ -28,6 +29,7 @@ public class Tab1Page1Fragment extends Fragment {
     ArrayList<Item> items= new ArrayList<>();
     RecyclerView recyclerView;
     Tab1Page1RecyclerAdapter recyclerAdapter;
+    SwipeRefreshLayout refreshLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +50,21 @@ public class Tab1Page1Fragment extends Fragment {
         recyclerView= view.findViewById(R.id.recycler);
         recyclerAdapter= new Tab1Page1RecyclerAdapter(getActivity(), items);
         recyclerView.setAdapter(recyclerAdapter);
+
+        refreshLayout = view.findViewById(R.id.layout_refresh);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadData();
+                refreshLayout.setRefreshing(false);
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadData();
     }
 
     void loadData(){

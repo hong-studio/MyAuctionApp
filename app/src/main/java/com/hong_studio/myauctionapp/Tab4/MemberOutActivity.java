@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp.Tab5;
+package com.hong_studio.myauctionapp.Tab4;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,12 +9,12 @@ import android.view.MenuItem;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.hong_studio.myauctionapp.R;
 
-public class CustomerCenterActivity extends AppCompatActivity {
+public class MemberOutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_center);
+        setContentView(R.layout.activity_member_out);
 
         setToolbar();
     }

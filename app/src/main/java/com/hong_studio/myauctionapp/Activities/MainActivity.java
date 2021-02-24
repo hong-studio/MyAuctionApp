@@ -6,7 +6,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.Manifest;
 import android.content.Intent;
@@ -20,8 +19,8 @@ import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.Tab1.Tab1Fragment;
 import com.hong_studio.myauctionapp.Tab2.Tab2Fragment;
+import com.hong_studio.myauctionapp.Tab3.Tab3Fragment;
 import com.hong_studio.myauctionapp.Tab4.Tab4Fragment;
-import com.hong_studio.myauctionapp.Tab5.Tab5Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.bnv_tab3:
                         if(G.memberName!=null){
                             if(fragments[2]==null) {
-                                fragments[2]= new Tab4Fragment();
+                                fragments[2]= new Tab3Fragment();
                                 tran.add(R.id.container, fragments[2]);
                             }
                             tran.show(fragments[2]);
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.bnv_tab4:
                         if(G.memberName!=null){
                             if(fragments[3]==null) {
-                                fragments[3]= new Tab5Fragment();
+                                fragments[3]= new Tab4Fragment();
                                 tran.add(R.id.container, fragments[3]);
                             }
                             tran.show(fragments[3]);

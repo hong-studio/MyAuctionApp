@@ -30,6 +30,7 @@ public class Tab1Page2Fragment extends Fragment {
     ArrayList<Item> items= new ArrayList<>();
     RecyclerView recyclerView;
     Tab1Page2RecyclerAdapter recyclerAdapter;
+    SwipeRefreshLayout refreshLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +51,21 @@ public class Tab1Page2Fragment extends Fragment {
         recyclerView= view.findViewById(R.id.recycler);
         recyclerAdapter= new Tab1Page2RecyclerAdapter(getActivity(), items);
         recyclerView.setAdapter(recyclerAdapter);
+
+        refreshLayout= view.findViewById(R.id.layout_refresh);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadData();
+                refreshLayout.setRefreshing(false);
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadData();
     }
 
     void loadData(){
@@ -57,7 +73,6 @@ public class Tab1Page2Fragment extends Fragment {
 //        items.add(new Tab1RecyclerItem(R.drawable.img06, "책", "등록자 6", "22:02:54"));
 //        items.add(new Tab1RecyclerItem(R.drawable.img05, "커피잔", "등록자 5", "03:12:11"));
 //        items.add(new Tab1RecyclerItem(R.drawable.img04, "앱 기획서", "등록자 4", "10:29:32"));
-
         Retrofit retrofit= RetrofitHelper.getRetrofitInstanceGson();
         RetrofitService retrofitService= retrofit.create(RetrofitService.class);
         Call<ArrayList<Item>> call= retrofitService.loadDataFromServer();

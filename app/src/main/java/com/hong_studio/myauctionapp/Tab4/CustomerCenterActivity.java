@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp.Tab5;
+package com.hong_studio.myauctionapp.Tab4;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,12 +9,12 @@ import android.view.MenuItem;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.hong_studio.myauctionapp.R;
 
-public class BankAccountActivity extends AppCompatActivity {
+public class CustomerCenterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bank_account);
+        setContentView(R.layout.activity_customer_center);
 
         setToolbar();
     }

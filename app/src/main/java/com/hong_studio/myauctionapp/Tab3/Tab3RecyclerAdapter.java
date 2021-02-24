@@ -1,4 +1,4 @@
-package com.hong_studio.myauctionapp.Tab4;
+package com.hong_studio.myauctionapp.Tab3;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,12 +17,12 @@ import com.hong_studio.myauctionapp.R;
 
 import java.util.ArrayList;
 
-public class Tab4RecyclerAdapter extends RecyclerView.Adapter {
+public class Tab3RecyclerAdapter extends RecyclerView.Adapter {
 
     Context context;
-    ArrayList<Tab4RecyclerItem> items;
+    ArrayList<Tab3RecyclerItem> items;
 
-    public Tab4RecyclerAdapter(Context context, ArrayList<Tab4RecyclerItem> items) {
+    public Tab3RecyclerAdapter(Context context, ArrayList<Tab3RecyclerItem> items) {
         this.context = context;
         this.items = items;
     }
@@ -38,7 +38,7 @@ public class Tab4RecyclerAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         VH vh= (VH)holder;
-        Tab4RecyclerItem item= items.get(position);
+        Tab3RecyclerItem item= items.get(position);
 
         Glide.with(context).load(item.imgUrl).into(vh.iv);
         vh.tvTitle.setText(item.title);
