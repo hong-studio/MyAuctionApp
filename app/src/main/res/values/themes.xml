@@ -17,6 +17,16 @@
     <style name="ToolbarTheme">
         <item name="android:actionMenuTextColor">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
+        <item name="actionButtonStyle">@style/MyActionButtonStyle</item>
+    </style>
+
+    <style name="ToolbarTheme2">
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="MyActionButtonStyle">
+        <item name="android:padding">8dp</item>
     </style>
 
 </resources>

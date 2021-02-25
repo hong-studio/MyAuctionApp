@@ -55,7 +55,7 @@ public class Tab1Fragment extends Fragment {
     private void setSearchView(@NonNull Menu menu) {
         MenuItem menuItem= menu.findItem(R.id.search_menu);
         searchView= (SearchView) menuItem.getActionView();
-        searchView.setQueryHint("검색어 입력");
+        searchView.setQueryHint("검색어를 입력하세요");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             //검색버튼(돋보기모양버튼)을 클릭했을 때..
             @Override

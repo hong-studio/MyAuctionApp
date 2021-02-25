@@ -4,16 +4,16 @@
 
     <item android:id="@+id/search_menu"
         android:title="검색"
-        android:icon="@drawable/ic_option1"
+        android:icon="@drawable/ic_option_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView"/>
     <item android:id="@+id/category_menu"
         android:title="검색필터"
-        android:icon="@drawable/ic_option2"
+        android:icon="@drawable/ic_option_control"
         app:showAsAction="always"/>
     <item android:id="@+id/notification_menu"
         android:title="알림"
-        android:icon="@drawable/ic_option3"
+        android:icon="@drawable/ic_option_notification"
         app:showAsAction="always"/>
 
 </menu>

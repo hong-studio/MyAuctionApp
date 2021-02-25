@@ -4,7 +4,7 @@
 
     <item android:id="@+id/share_menu"
         android:title="공유"
-        android:icon="@drawable/ic_option4"
+        android:icon="@drawable/ic_option_share"
         app:showAsAction="always"/>
 
 </menu>
