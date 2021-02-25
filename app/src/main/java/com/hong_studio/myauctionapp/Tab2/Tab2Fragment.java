@@ -19,6 +19,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
 import com.hong_studio.myauctionapp.Activities.CategoryActivity;
 import com.hong_studio.myauctionapp.Activities.MainActivity;
+import com.hong_studio.myauctionapp.Activities.NotificationActivity;
 import com.hong_studio.myauctionapp.R;
 
 public class Tab2Fragment extends Fragment {
@@ -47,12 +48,13 @@ public class Tab2Fragment extends Fragment {
 
                 break;
 
-            case R.id.control_menu:
+            case R.id.category_menu:
                 startActivity(new Intent(getActivity(), CategoryActivity.class));
                 break;
 
-            case R.id.bell_menu:
-
+            case R.id.notification_menu:
+                startActivity(new Intent(getActivity(), NotificationActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_in_right_anim, R.anim.slide_out_left_anim);
                 break;
         }
         return super.onOptionsItemSelected(item);

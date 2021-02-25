@@ -40,18 +40,16 @@
                     <ImageView
                         android:layout_width="92dp"
                         android:layout_height="92dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_margin="8dp"
                         android:src="@drawable/ic_camera"
                         android:onClick="clickIvCamera"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1/10"
-                        android:textColor="#FF333333"
-                        android:textSize="16sp"
-                        android:layout_gravity="center"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="1/10"-->
+<!--                        android:textColor="#FF333333"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:layout_gravity="center"/>-->
                 </LinearLayout>
 
                 <ImageView

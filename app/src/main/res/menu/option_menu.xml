@@ -6,11 +6,11 @@
         android:title="검색"
         android:icon="@drawable/ic_option1"
         app:showAsAction="always"/>
-    <item android:id="@+id/control_menu"
+    <item android:id="@+id/category_menu"
         android:title="검색필터"
         android:icon="@drawable/ic_option2"
         app:showAsAction="always"/>
-    <item android:id="@+id/bell_menu"
+    <item android:id="@+id/notification_menu"
         android:title="알림"
         android:icon="@drawable/ic_option3"
         app:showAsAction="always"/>
