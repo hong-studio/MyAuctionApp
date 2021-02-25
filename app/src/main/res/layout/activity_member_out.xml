@@ -12,6 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         app:titleTextColor="@color/white"
         app:title="회원탈퇴"
+        android:theme="@style/ToolbarTheme"
         android:background="@color/mainTheme"/>
 
     <LinearLayout

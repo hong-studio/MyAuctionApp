@@ -33,6 +33,5 @@ public class CustomerCenterActivity extends AppCompatActivity {
         MaterialToolbar toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
     }
 }

@@ -12,6 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         app:title="프로필"
         app:titleTextColor="@color/white"
+        android:theme="@style/ToolbarTheme"
         android:background="@color/mainTheme"/>
 
     <LinearLayout

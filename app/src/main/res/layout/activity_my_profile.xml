@@ -12,6 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         app:titleTextColor="@color/white"
         app:title="내 프로필"
+        android:theme="@style/ToolbarTheme"
         android:background="@color/mainTheme"
         app:menu="@menu/option_menu_myprofile"/>
 

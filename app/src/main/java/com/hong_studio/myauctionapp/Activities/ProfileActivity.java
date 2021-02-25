@@ -30,7 +30,6 @@ public class ProfileActivity extends AppCompatActivity {
         MaterialToolbar toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_back);
 
         ivProfile= findViewById(R.id.iv_profile);
         tvNickname= findViewById(R.id.tv_nickname);

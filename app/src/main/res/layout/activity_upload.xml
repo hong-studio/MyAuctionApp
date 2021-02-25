@@ -13,6 +13,7 @@
         android:layout_height="?attr/actionBarSize"
         app:titleTextColor="@color/white"
         app:title="상품등록"
+        android:theme="@style/ToolbarTheme"
         android:background="@color/mainTheme"/>
 
     <androidx.core.widget.NestedScrollView
