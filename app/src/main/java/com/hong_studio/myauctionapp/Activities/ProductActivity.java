@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.Gson;
+import com.hong_studio.myauctionapp.BottomSheetDialog;
 import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
@@ -123,6 +124,10 @@ public class ProductActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case android.R.id.home:
                 finish();
+                break;
+            case R.id.share_menu:
+                BottomSheetDialog bottomSheetDialog = BottomSheetDialog.getInstance();
+                bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
                 break;
         }
         return super.onOptionsItemSelected(item);

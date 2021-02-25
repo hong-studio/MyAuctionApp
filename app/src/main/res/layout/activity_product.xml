@@ -145,4 +145,6 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <include layout="@layout/content_main" />
+
 </RelativeLayout>
