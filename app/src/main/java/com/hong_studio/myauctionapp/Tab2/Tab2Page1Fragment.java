@@ -68,10 +68,6 @@ public class Tab2Page1Fragment extends Fragment {
     }
 
     void loadData(){
-        //일단은 더미데이터
-//        items.add(new Tab2RecyclerItem(R.drawable.img03, "컴퓨터", "등록자 3", "07:20:47"));
-//        items.add(new Tab2RecyclerItem(R.drawable.img02, "아기옷", "등록자 2", "20:53:15"));
-//        items.add(new Tab2RecyclerItem(R.drawable.img01, "스웨터", "등록자 1", "10:30:02"));
         Retrofit retrofit= RetrofitHelper.getRetrofitInstanceGson();
         RetrofitService retrofitService= retrofit.create(RetrofitService.class);
         Call<ArrayList<Item>> call= retrofitService.loadDataFromServer();

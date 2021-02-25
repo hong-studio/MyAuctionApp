@@ -66,8 +66,8 @@ public class Tab1Page1Fragment extends Fragment {
         super.onResume();
         loadData();
     }
-    //public으로 고쳤음
-    public void loadData(){
+
+    void loadData(){
         //일단은 더미데이터
 //        items.add(new Tab1RecyclerItem(R.drawable.img01, "스웨터", "등록자 1", "10:30:02"));
 //        items.add(new Tab1RecyclerItem(R.drawable.img02, "아기옷", "등록자 2", "20:53:15"));

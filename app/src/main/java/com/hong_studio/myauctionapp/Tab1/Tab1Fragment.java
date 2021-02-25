@@ -56,9 +56,9 @@ public class Tab1Fragment extends Fragment {
                 break;
 
             case R.id.control_menu:
-//                Intent intent= new Intent(getActivity(), CategoryActivity.class);
-//                startActivityForResult(intent, 10);
-//                break;
+                Intent intent= new Intent(getActivity(), CategoryActivity.class);
+                startActivity(intent);
+                break;
 
             case R.id.bell_menu:
 

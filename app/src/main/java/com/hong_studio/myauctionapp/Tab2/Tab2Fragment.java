@@ -1,5 +1,6 @@
 package com.hong_studio.myauctionapp.Tab2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
+import com.hong_studio.myauctionapp.Activities.CategoryActivity;
 import com.hong_studio.myauctionapp.Activities.MainActivity;
 import com.hong_studio.myauctionapp.R;
 
@@ -46,7 +48,7 @@ public class Tab2Fragment extends Fragment {
                 break;
 
             case R.id.control_menu:
-
+                startActivity(new Intent(getActivity(), CategoryActivity.class));
                 break;
 
             case R.id.bell_menu:
