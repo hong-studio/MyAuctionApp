@@ -10,10 +10,10 @@
     <item android:id="@+id/category_menu"
         android:title="검색필터"
         android:icon="@drawable/ic_option_control"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
     <item android:id="@+id/notification_menu"
         android:title="알림"
         android:icon="@drawable/ic_option_notification"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
 
 </menu>
