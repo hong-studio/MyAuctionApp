@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -25,7 +26,9 @@ import com.hong_studio.myauctionapp.R;
 public class Tab3Fragment extends Fragment {
 
     MaterialToolbar toolbar;
+    SearchView searchView;
     TabLayout tabLayout;
+
     ViewPager pager;
     Tab3PagerAdapter pagerAdapter;
 
@@ -39,6 +42,25 @@ public class Tab3Fragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.option_menu, menu);
+        setSearchView(menu);
+    }
+
+    private void setSearchView(@NonNull Menu menu) {
+        MenuItem menuItem= menu.findItem(R.id.search_menu);
+        searchView= (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("검색어 입력");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            //검색버튼(돋보기모양버튼)을 클릭했을 때..
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            //글씨가 변경될 때마다 발동하는 메소드
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
     @Override
@@ -50,6 +72,7 @@ public class Tab3Fragment extends Fragment {
 
             case R.id.category_menu:
                 startActivity(new Intent(getActivity(), CategoryActivity.class));
+                getActivity().overridePendingTransition(0,0);
                 break;
 
             case R.id.notification_menu:

@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAuctionApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.NotificationActivity"></activity>
+        <activity android:name=".Activities.SearchActivity"></activity>
+        <activity android:name=".Activities.NotificationActivity" />
         <activity android:name=".Activities.CategoryActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.UploadActivity" />
