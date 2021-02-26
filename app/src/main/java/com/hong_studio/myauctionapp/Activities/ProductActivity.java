@@ -126,8 +126,14 @@ public class ProductActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.share_menu:
-                BottomSheetDialog bottomSheetDialog = BottomSheetDialog.getInstance();
-                bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
+//                BottomSheetDialog bottomSheetDialog = BottomSheetDialog.getInstance();
+//                bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
+                Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
+                Sharing_intent.setType("text/plain");
+                String Test_Message = "공유할 Text";
+                Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
+                Intent Sharing = Intent.createChooser(Sharing_intent, "공유하기");
+                startActivity(Sharing);
                 break;
         }
         return super.onOptionsItemSelected(item);
