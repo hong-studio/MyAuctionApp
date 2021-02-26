@@ -24,7 +24,6 @@ import com.hong_studio.myauctionapp.Activities.CategoryActivity;
 import com.hong_studio.myauctionapp.Activities.LoginActivity;
 import com.hong_studio.myauctionapp.Activities.MainActivity;
 import com.hong_studio.myauctionapp.Activities.NotificationActivity;
-import com.hong_studio.myauctionapp.Activities.SearchActivity;
 import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.Activities.UploadActivity;
@@ -74,8 +73,7 @@ public class Tab1Fragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.search_menu:
-//                startActivity(new Intent(getActivity(), SearchActivity.class));
-//                getActivity().overridePendingTransition(0,0);
+
                 break;
 
             case R.id.category_menu:
@@ -90,25 +88,6 @@ public class Tab1Fragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
-
-//    String[] checked= new String[14];
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        switch (requestCode){
-//            case 10:
-//                if(resultCode== Activity.RESULT_OK){
-//                    for(int i=0; i<checked.length; i++){
-//                        checked[i]= data.getStringExtra("checkbox"+(i+1));
-//                    }
-//
-//                    pagerAdapter.pages[0].
-//                } else {
-//                    Toast.makeText(getActivity(), "카테고리 설정 오류가 발생했습니다", Toast.LENGTH_SHORT).show();
-//                }
-//                break;
-//        }
-//    }
 
     @Nullable
     @Override

@@ -11,12 +11,14 @@ import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.gson.Gson;
 import com.hong_studio.myauctionapp.R;
+import com.hong_studio.myauctionapp.Tab1.Tab1Page1Fragment;
 
 public class CategoryActivity extends AppCompatActivity {
 
-    CheckBox[] checkBoxArray= new CheckBox[14];
-    String[] checkBoxText= new String[14];
+//    CheckBox[] checkBoxArray= new CheckBox[14];
+//    String[] checkBoxText= new String[14];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +27,28 @@ public class CategoryActivity extends AppCompatActivity {
 
         setToolbar();
 
-//        Intent intent= getIntent();
-//        for (int i=0; i<checkBoxArray.length; i++){
-//            checkBoxArray[i]= findViewById(R.id.checkbox1+i);
-//            checkBoxText[i]= checkBoxArray[i].getText().toString();
-//        }
 //        for(int i=0; i<checkBoxArray.length; i++){
-//            if (checkBoxArray[i].isChecked()) {
-//                intent.putExtra("checkbox"+ (i+1), checkBoxText[i]);
-//            }
+//            checkBoxArray[i]= findViewById(R.id.checkbox1+i);
 //        }
-//        this.setResult(RESULT_OK, intent);
+//
+//        //CheckBox의 체크상태가 변경되는 것을 듣는 리스너객체 생성
+//        CompoundButton.OnCheckedChangeListener listener= new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                for(int i=0; i<checkBoxArray.length; i++){
+//                    if(checkBoxArray[i].isChecked()==true){
+//                        checkBoxText[i]= checkBoxArray[i].getText().toString();
+//                    } else if(checkBoxArray[i].isChecked()==false){
+//                        checkBoxText[i]= null;
+//                    }
+//                }
+//            }
+//        };
+//
+//        //체크박스에게 리스너 설정해주기
+//        for(int i=0; i<checkBoxArray.length; i++){
+//            checkBoxArray[i].setOnCheckedChangeListener(listener);
+//        }
     }
 
     private void setToolbar() {
