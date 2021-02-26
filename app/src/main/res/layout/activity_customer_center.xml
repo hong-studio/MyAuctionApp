@@ -30,6 +30,20 @@
         android:textSize="16sp"
         android:textColor="#FF333333"
         android:padding="16dp"/>
+    <ImageView
+        android:id="@+id/iv01_down"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/tv01_FAQ"
+        android:src="@drawable/ic_down"/>
+<!--    <TextView-->
+<!--        android:id="@+id/tv01_down"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/tv01_FAQ"-->
+<!--        android:visibility="invisible"/>-->
 
     <View
         android:id="@+id/line2"
@@ -46,6 +60,14 @@
         android:textSize="16sp"
         android:textColor="#FF333333"
         android:padding="16dp"/>
+    <ImageView
+        android:id="@+id/iv02_down"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_margin="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/tv02_OneToOneQuestion"
+        android:src="@drawable/ic_down"/>
 
     <View
         android:id="@+id/line3"
