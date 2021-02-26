@@ -42,6 +42,8 @@ public class Tab1Fragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        ((Tab1Page1Fragment)pagerAdapter.pages[0]).loadData();
     }
 
     @Override
