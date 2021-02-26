@@ -130,7 +130,7 @@ public class ProductActivity extends AppCompatActivity {
 //                bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
                 Intent Sharing_intent = new Intent(Intent.ACTION_SEND);
                 Sharing_intent.setType("text/plain");
-                String Test_Message = "공유할 Text";
+                String Test_Message = "앱 다운로드 링크 보내도록 수정예정";
                 Sharing_intent.putExtra(Intent.EXTRA_TEXT, Test_Message);
                 Intent Sharing = Intent.createChooser(Sharing_intent, "공유하기");
                 startActivity(Sharing);
