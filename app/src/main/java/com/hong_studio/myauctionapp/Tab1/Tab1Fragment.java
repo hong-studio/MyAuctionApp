@@ -43,7 +43,7 @@ public class Tab1Fragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
-        ((Tab1Page1Fragment)pagerAdapter.pages[0]).loadData();
+//        ((Tab1Page1Fragment)pagerAdapter.pages[0]).loadData();
     }
 
     @Override
