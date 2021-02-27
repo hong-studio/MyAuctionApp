@@ -24,7 +24,7 @@ import com.hong_studio.myauctionapp.Tab4.Tab4Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomNavigationView bnv;
+    public BottomNavigationView bnv;
     Fragment[] fragments= new Fragment[4];
     FragmentManager fragmentManager;
 
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         if(G.memberName==null){
             bnv.setSelectedItemId(R.id.bnv_tab1);

@@ -95,6 +95,7 @@ public class Tab4Fragment extends Fragment {
                                     G.profileImgUrl= null;
                                     G.memberName= null;
                                     Toast.makeText(getActivity(), "로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
+                                    ((MainActivity)getActivity()).onResume();
                                 }
                                 return null;
                             }
