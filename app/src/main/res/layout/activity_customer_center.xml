@@ -15,65 +15,71 @@
         android:theme="@style/ToolbarTheme"
         android:background="@color/mainTheme"/>
 
-    <View
-        android:id="@+id/line1"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#FFDDDDDD"
-        android:layout_below="@id/toolbar"/>
-    <TextView
-        android:id="@+id/tv01_FAQ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="자주 묻는 FAQ"
-        android:layout_below="@id/line1"
-        android:textSize="16sp"
-        android:textColor="#FF333333"
-        android:padding="16dp"/>
-    <ImageView
-        android:id="@+id/iv01_down"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_margin="16dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/tv01_FAQ"
-        android:src="@drawable/ic_down"/>
-<!--    <TextView-->
-<!--        android:id="@+id/tv01_down"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/tv01_FAQ"-->
-<!--        android:visibility="invisible"/>-->
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
 
-    <View
-        android:id="@+id/line2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#FFDDDDDD"
-        android:layout_below="@id/tv01_FAQ"/>
-    <TextView
-        android:id="@+id/tv02_OneToOneQuestion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1:1 문의"
-        android:layout_below="@id/line2"
-        android:textSize="16sp"
-        android:textColor="#FF333333"
-        android:padding="16dp"/>
-    <ImageView
-        android:id="@+id/iv02_down"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_margin="16dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/tv02_OneToOneQuestion"
-        android:src="@drawable/ic_down"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/line3"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#FFDDDDDD"
-        android:layout_below="@id/tv02_OneToOneQuestion"/>
+            <TextView
+                android:id="@+id/tv01_FAQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="자주 묻는 FAQ"
+                android:textSize="16sp"
+                android:textColor="#FF333333"
+                android:padding="16dp"/>
+            <ImageView
+                android:id="@+id/iv01_down"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/tv01_FAQ"
+                android:src="@drawable/ic_down"/>
+            <TextView
+                android:id="@+id/tv01_down"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv01_FAQ"
+                android:visibility="invisible"/>
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFDDDDDD"
+                android:layout_below="@id/tv01_FAQ"/>
+            <TextView
+                android:id="@+id/tv02_OneToOneQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1:1 문의"
+                android:layout_below="@id/line1"
+                android:textSize="16sp"
+                android:textColor="#FF333333"
+                android:padding="16dp"/>
+            <ImageView
+                android:id="@+id/iv02_down"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/tv02_OneToOneQuestion"
+                android:src="@drawable/ic_down"/>
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFDDDDDD"
+                android:layout_below="@id/tv02_OneToOneQuestion"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
