@@ -41,7 +41,7 @@
                 android:layout_alignTop="@id/tv01"
                 android:src="@drawable/ic_down"/>
             <TextView
-                android:id="@+id/tv01_down"
+                android:id="@+id/tv01_whenDown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv01"
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#FFDDDDDD"
-                android:layout_below="@id/tv01_down"/>
+                android:layout_below="@id/tv01_whenDown"/>
             <TextView
                 android:id="@+id/tv02"
                 android:layout_width="match_parent"
@@ -73,20 +73,19 @@
                 android:layout_alignTop="@id/tv02"
                 android:src="@drawable/ic_down"/>
             <TextView
-                android:id="@+id/tv02_down"
+                android:id="@+id/tv02_whenDown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv01"
+                android:layout_below="@id/tv02"
                 android:text="1:1문의 양식"
                 android:textSize="100sp"
                 android:visibility="gone"/>
-
             <View
                 android:id="@+id/line2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#FFDDDDDD"
-                android:layout_below="@id/tv02"/>
+                android:layout_below="@id/tv02_whenDown"/>
 
         </RelativeLayout>
 
