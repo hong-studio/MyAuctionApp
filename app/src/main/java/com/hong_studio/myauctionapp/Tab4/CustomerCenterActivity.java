@@ -2,10 +2,12 @@ package com.hong_studio.myauctionapp.Tab4;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.transition.TransitionManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import com.hong_studio.myauctionapp.R;
 
 public class CustomerCenterActivity extends AppCompatActivity {
 
+    ViewGroup tContainer;
     TextView tv01, tv02;
     ImageView iv01Down, iv02Down;
     TextView tv01whenDown, tv02whenDown;
@@ -26,6 +29,7 @@ public class CustomerCenterActivity extends AppCompatActivity {
 
         setToolbar();
 
+        tContainer= findViewById(R.id.transitionContainer);
         tv01= findViewById(R.id.tv01);
         tv02= findViewById(R.id.tv02);
         iv01Down= findViewById(R.id.iv01_down);
@@ -33,31 +37,27 @@ public class CustomerCenterActivity extends AppCompatActivity {
         tv01whenDown= findViewById(R.id.tv01_whenDown);
         tv02whenDown= findViewById(R.id.tv02_whenDown);
 
+        onClickDownArrow();
+    }
+
+    private void onClickDownArrow() {
         iv01Down.setOnClickListener(new View.OnClickListener() {
-            int isClicked= 0;
+            boolean visible;
             @Override
             public void onClick(View v) {
-                if(isClicked==0){
-                    tv01whenDown.setVisibility(View.VISIBLE);
-                    isClicked= 1;
-                } else if(isClicked!=0){
-                    tv01whenDown.setVisibility(View.GONE);
-                    isClicked= 0;
-                }
+                TransitionManager.beginDelayedTransition(tContainer);
+                visible= !visible;
+                tv01whenDown.setVisibility(visible ? View.VISIBLE: View.GONE);
             }
         });
 
         iv02Down.setOnClickListener(new View.OnClickListener() {
-            int isClicked= 0;
+            boolean visible;
             @Override
             public void onClick(View v) {
-                if(isClicked==0){
-                    tv02whenDown.setVisibility(View.VISIBLE);
-                    isClicked= 1;
-                } else if(isClicked!=0){
-                    tv02whenDown.setVisibility(View.GONE);
-                    isClicked= 0;
-                }
+                TransitionManager.beginDelayedTransition(tContainer);
+                visible= !visible;
+                tv02whenDown.setVisibility(visible ? View.VISIBLE: View.GONE);
             }
         });
     }
