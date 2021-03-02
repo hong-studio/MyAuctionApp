@@ -2,11 +2,13 @@ package com.hong_studio.myauctionapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -27,7 +29,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProductActivity extends AppCompatActivity {
 
-    LinearLayout layoutProfile;
+    NestedScrollView scrollView;
+//    LinearLayout layoutProfile;
 
     ImageView ivProductImg;
     CircleImageView ivProfileImg;
@@ -44,7 +47,8 @@ public class ProductActivity extends AppCompatActivity {
         setToolbar();
 
         //findViewById...
-        layoutProfile= findViewById(R.id.layout_profile);
+        scrollView= findViewById(R.id.scrollView);
+//        layoutProfile= findViewById(R.id.layout_profile);
         ivProductImg= findViewById(R.id.iv_productImg);
         ivProfileImg= findViewById(R.id.iv_profileImg);
         tvMemberName= findViewById(R.id.tv_memberName);
@@ -57,7 +61,7 @@ public class ProductActivity extends AppCompatActivity {
 
         loadDataAndSetData();
         onClickProductImg();
-        onClickLayoutProfile();
+//        onClickLayoutProfile();
 
         onClickHeart();
     }
@@ -92,20 +96,20 @@ public class ProductActivity extends AppCompatActivity {
         });
     }
 
-    private void onClickLayoutProfile() {
-        layoutProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String jsonStr= getIntent().getStringExtra("item");
-                Item item= new Gson().fromJson(jsonStr, Item.class);
-
-                Intent intent= new Intent(ProductActivity.this, ProfileActivity.class);
-                intent.putExtra("profileImg", item.profileImg);
-                intent.putExtra("memberName", item.memberName);
-                startActivity(intent);
-            }
-        });
-    }
+//    private void onClickLayoutProfile() {
+//        layoutProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String jsonStr= getIntent().getStringExtra("item");
+//                Item item= new Gson().fromJson(jsonStr, Item.class);
+//
+//                Intent intent= new Intent(ProductActivity.this, ProfileActivity.class);
+//                intent.putExtra("profileImg", item.profileImg);
+//                intent.putExtra("memberName", item.memberName);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -190,6 +194,7 @@ public class ProductActivity extends AppCompatActivity {
             } else if(Integer.parseInt(etPrice.getText().toString()) > Integer.parseInt(item.price)){
                 item.price= etPrice.getText().toString();
                 tvPrice.setText("현재가격 : "+item.price+"원");
+                etPrice.setText("");
                 Toast.makeText(this, "입찰이 완료되었습니다", Toast.LENGTH_SHORT).show();
 
                 //데이터 업데이트....
