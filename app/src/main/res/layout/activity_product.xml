@@ -103,18 +103,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10:30:02"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textColor="#FFFF0000"
+                android:layout_marginTop="32dp"
                 android:layout_below="@id/tv_msg"
                 android:layout_alignRight="@id/iv_favor"
                 android:layout_marginRight="8dp"/>
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="현재가격 : "
+                android:textColor="#FF333333"
+                android:textSize="20sp"
+                android:layout_below="@id/tv_time"
+                android:layout_alignRight="@id/tv_time"/>
 
             <LinearLayout
                 android:id="@+id/layout_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@id/tv_time"
+                android:layout_below="@id/tv_price"
                 android:layout_marginTop="16dp">
                 <EditText
                     android:id="@+id/et_price"
@@ -138,7 +148,8 @@
                     android:layout_height="wrap_content"
                     android:text="입찰"
                     android:textStyle="bold"
-                    android:layout_marginRight="20dp"/>
+                    android:layout_marginRight="20dp"
+                    android:onClick="clickPrice"/>
             </LinearLayout>
 
         </RelativeLayout>

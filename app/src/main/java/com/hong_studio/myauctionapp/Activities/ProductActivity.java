@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -41,9 +43,10 @@ public class ProductActivity extends AppCompatActivity {
 
     ImageView ivProductImg;
     CircleImageView ivProfileImg;
-    TextView tvMemberName, tvProductName, tvCategory, tvMsg;
+    TextView tvMemberName, tvProductName, tvCategory, tvMsg, tvPrice;
     ImageView ivFavor;
     TextView tvTime;
+    EditText etPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,8 @@ public class ProductActivity extends AppCompatActivity {
         tvCategory= findViewById(R.id.tv_category);
         tvMsg= findViewById(R.id.tv_msg);
         tvTime= findViewById(R.id.tv_time);
+        tvPrice= findViewById(R.id.tv_price);
+        etPrice= findViewById(R.id.et_price);
 
         loadDataAndSetData();
         onClickProductImg();
@@ -82,6 +87,7 @@ public class ProductActivity extends AppCompatActivity {
         tvCategory.setText(item.category);
         tvMsg.setText(item.msg);
         tvTime.setText(item.time);
+        tvPrice.setText("현재가격 : "+item.price+"원");
     }
 
     private void onClickProductImg() {
@@ -168,4 +174,26 @@ public class ProductActivity extends AppCompatActivity {
         });
     }
 
+    public void clickPrice(View view) {
+
+        String jsonStr= getIntent().getStringExtra("item");
+        Item item= new Gson().fromJson(jsonStr, Item.class);
+        
+        if(etPrice.getText().toString().equals("")){
+            Toast.makeText(this, "가격을 입력해주세요", Toast.LENGTH_SHORT).show();
+        } else if(!etPrice.getText().toString().equals("")){
+            if (Integer.parseInt(etPrice.getText().toString()) <= Integer.parseInt(item.price)){
+                Toast.makeText(this, "현재가격보다 더 높은 가격을 입력해주세요", Toast.LENGTH_SHORT).show();
+            } else if(Integer.parseInt(etPrice.getText().toString()) > Integer.parseInt(item.price)){
+                item.price= etPrice.getText().toString();
+                tvPrice.setText("현재가격 : "+item.price+"원");
+                Toast.makeText(this, "입찰이 완료되었습니다", Toast.LENGTH_SHORT).show();
+
+                //데이터 업데이트....
+
+                InputMethodManager imm= (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        }
+    }
 }
