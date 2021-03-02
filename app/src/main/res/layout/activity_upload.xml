@@ -73,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:hint="상품명"
                 android:textSize="20sp"
+                android:maxLength="15"
                 android:padding="16dp"
                 android:background="@drawable/bg_et_register"
                 android:inputType="text"/>

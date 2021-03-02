@@ -18,6 +18,8 @@
         android:textSize="20sp"
         android:textColor="#FF333333"
         android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="end"
         android:layout_toRightOf="@id/iv_productImg"
         android:padding="8dp"/>
     <TextView
