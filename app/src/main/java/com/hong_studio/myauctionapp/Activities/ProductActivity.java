@@ -2,12 +2,9 @@ package com.hong_studio.myauctionapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,21 +18,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.Gson;
-import com.hong_studio.myauctionapp.BottomSheetDialog;
 import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.Item;
 import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.RetrofitHelper;
-import com.hong_studio.myauctionapp.RetrofitService;
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
-
-import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class ProductActivity extends AppCompatActivity {
 
@@ -121,7 +109,17 @@ public class ProductActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.option_menu_share, menu);
+        getMenuInflater().inflate(R.menu.option_menu_product, menu);
+        MenuItem editItem= menu.findItem(R.id.edit_menu);
+
+        String jsonStr= getIntent().getStringExtra("item");
+        Item item= new Gson().fromJson(jsonStr, Item.class);
+
+        if(G.memberName.equals(item.memberName)){
+            editItem.setVisible(true);
+        } else if(!G.memberName.equals(item.memberName)){
+            editItem.setVisible(false);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -131,6 +129,11 @@ public class ProductActivity extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 break;
+
+            case R.id.edit_menu:
+                startActivity(new Intent(this, EditProductActivity.class));
+                break;
+
             case R.id.share_menu:
 //                BottomSheetDialog bottomSheetDialog = BottomSheetDialog.getInstance();
 //                bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
