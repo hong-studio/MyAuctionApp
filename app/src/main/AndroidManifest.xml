@@ -21,7 +21,7 @@
         <activity android:name=".Activities.NotificationActivity" />
         <activity android:name=".Activities.CategoryActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.UploadActivity" />
+        <activity android:name=".Activities.UploadActivity" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".Activities.ImageActivity" />
         <activity android:name=".Tab4.MemberOutActivity" />
         <activity android:name=".Tab4.CustomerCenterActivity" />

@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.hong_studio.myauctionapp.G;
+import com.hong_studio.myauctionapp.KeyboardVisibilityUtils;
 import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.RetrofitHelper;
 import com.hong_studio.myauctionapp.RetrofitService;
@@ -34,6 +35,9 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.functions.Function1;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -54,6 +58,7 @@ public class UploadActivity extends AppCompatActivity {
                                       "반려동물용품", "도서/티켓/음반", "식물", "기타 상품"};
     TextView tvCategory;
     EditText etProductName, etPrice, etMsg;
+    KeyboardVisibilityUtils keyboardVisibilityUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +77,7 @@ public class UploadActivity extends AppCompatActivity {
         onClickCategory();
 
         etMsg= findViewById(R.id.et_msg);
-        etMsgTouch();
+        onShowKeyboard();
     }
 
     public void clickIvCamera(View view) {
@@ -194,14 +199,18 @@ public class UploadActivity extends AppCompatActivity {
         });
     }
 
-    private void etMsgTouch() {
-        etMsg.setOnTouchListener(new View.OnTouchListener() {
+    private void onShowKeyboard() {
+        keyboardVisibilityUtils= new KeyboardVisibilityUtils(getWindow(), new Function1<Integer, Unit>() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction()==MotionEvent.ACTION_DOWN){
-                    scrollView.smoothScrollTo(0, scrollView.getScrollY() + etMsg.getHeight());
-                }
-                return false;
+            public Unit invoke(Integer integer) {
+                scrollView.smoothScrollTo(scrollView.getScrollX(), scrollView.getScrollY() + integer);
+                return null;
+            }
+        }, new Function0<Unit>() {
+            @Override
+            public Unit invoke() {
+                scrollView.smoothScrollTo(scrollView.getScrollX(), scrollView.getScrollY());
+                return null;
             }
         });
     }
