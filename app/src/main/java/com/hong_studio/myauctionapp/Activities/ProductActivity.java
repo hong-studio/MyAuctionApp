@@ -22,10 +22,13 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.Gson;
 import com.hong_studio.myauctionapp.G;
 import com.hong_studio.myauctionapp.Item;
+import com.hong_studio.myauctionapp.KeyboardVisibilityUtils;
 import com.hong_studio.myauctionapp.R;
 import com.hong_studio.myauctionapp.RetrofitHelper;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class ProductActivity extends AppCompatActivity {
 
@@ -38,6 +41,8 @@ public class ProductActivity extends AppCompatActivity {
     ImageView ivFavor;
     TextView tvTime;
     EditText etPrice;
+
+    KeyboardVisibilityUtils keyboardVisibilityUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,14 @@ public class ProductActivity extends AppCompatActivity {
         tvTime= findViewById(R.id.tv_time);
         tvPrice= findViewById(R.id.tv_price);
         etPrice= findViewById(R.id.et_price);
+
+        keyboardVisibilityUtils= new KeyboardVisibilityUtils(getWindow(), new Function1<Integer, Unit>() {
+            @Override
+            public Unit invoke(Integer integer) {
+                scrollView.smoothScrollTo(scrollView.getScrollX(), scrollView.getScrollY()+ integer);
+                return null;
+            }
+        }, null);
 
         loadDataAndSetData();
         onClickProductImg();
