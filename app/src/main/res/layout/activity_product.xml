@@ -47,11 +47,19 @@
                 android:text="닉네임"
                 android:textSize="16sp"
                 android:textColor="#FF333333"
-                android:paddingTop="19dp"
-                android:paddingBottom="19dp"
                 android:paddingLeft="8dp"
                 android:layout_toRightOf="@id/iv_profileImg"
-                android:layout_alignTop="@id/iv_profileImg"/>
+                android:layout_alignTop="@id/iv_profileImg"
+                android:layout_alignBottom="@id/iv_profileImg"
+                android:gravity="center_vertical"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/ic_arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/tv_memberName"
+                android:layout_alignBottom="@id/tv_memberName"
+                android:layout_marginRight="8dp"/>
 
             <View
                 android:layout_width="match_parent"

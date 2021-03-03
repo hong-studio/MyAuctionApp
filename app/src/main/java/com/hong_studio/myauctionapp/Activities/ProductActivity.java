@@ -62,24 +62,13 @@ public class ProductActivity extends AppCompatActivity {
         tvPrice= findViewById(R.id.tv_price);
         etPrice= findViewById(R.id.et_price);
 
-        onShowKeyboard();
-
         loadDataAndSetData();
         onClickProductImg();
-//        onClickLayoutProfile();
-
+        onClickMemberName();
+        onShowKeyboard();
         onClickHeart();
     }
 
-    private void onShowKeyboard() {
-        keyboardVisibilityUtils= new KeyboardVisibilityUtils(getWindow(), new Function1<Integer, Unit>() {
-            @Override
-            public Unit invoke(Integer integer) {
-                scrollView.smoothScrollTo(scrollView.getScrollX(), scrollView.getScrollY()+ integer);
-                return null;
-            }
-        }, null);
-    }
 
     private void loadDataAndSetData() {
         String jsonStr= getIntent().getStringExtra("item");
@@ -111,20 +100,31 @@ public class ProductActivity extends AppCompatActivity {
         });
     }
 
-//    private void onClickLayoutProfile() {
-//        layoutProfile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String jsonStr= getIntent().getStringExtra("item");
-//                Item item= new Gson().fromJson(jsonStr, Item.class);
-//
-//                Intent intent= new Intent(ProductActivity.this, ProfileActivity.class);
-//                intent.putExtra("profileImg", item.profileImg);
-//                intent.putExtra("memberName", item.memberName);
-//                startActivity(intent);
-//            }
-//        });
-//    }
+    private void onClickMemberName() {
+        tvMemberName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String jsonStr= getIntent().getStringExtra("item");
+                Item item= new Gson().fromJson(jsonStr, Item.class);
+
+                Intent intent= new Intent(ProductActivity.this, ProfileActivity.class);
+                intent.putExtra("profileImg", item.profileImg);
+                intent.putExtra("memberName", item.memberName);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right_anim, R.anim.slide_out_left_anim);
+            }
+        });
+    }
+
+    private void onShowKeyboard() {
+        keyboardVisibilityUtils= new KeyboardVisibilityUtils(getWindow(), new Function1<Integer, Unit>() {
+            @Override
+            public Unit invoke(Integer integer) {
+                scrollView.smoothScrollTo(scrollView.getScrollX(), scrollView.getScrollY()+ integer);
+                return null;
+            }
+        }, null);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
