@@ -1,6 +1,7 @@
 package com.hong_studio.myauctionapp.Tab1;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,6 +84,7 @@ public class Tab1Page1Fragment extends Fragment {
 
                 ArrayList<Item> list= response.body();
                 for(Item item : list){
+//                    Log.i("aaaa", item.productName);
                     items.add(0, item);
 //                    items.add(item);
                     recyclerAdapter.notifyItemInserted(items.size()-1);
