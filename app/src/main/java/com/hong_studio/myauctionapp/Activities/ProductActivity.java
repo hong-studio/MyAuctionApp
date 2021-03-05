@@ -134,11 +134,8 @@ public class ProductActivity extends AppCompatActivity {
         String jsonStr= getIntent().getStringExtra("item");
         Item item= new Gson().fromJson(jsonStr, Item.class);
 
-        if(G.memberName.equals(item.memberName)){
-            editItem.setVisible(true);
-        } else if(!G.memberName.equals(item.memberName)){
-            editItem.setVisible(false);
-        }
+        if(G.memberName!=null && G.memberName.equals(item.memberName)) editItem.setVisible(true);
+        else editItem.setVisible(false);
         return super.onCreateOptionsMenu(menu);
     }
 
