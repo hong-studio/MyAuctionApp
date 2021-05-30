@@ -11,6 +11,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.hong_studio.myauctionapp.Tab1.Tab1Fragment;
 import com.hong_studio.myauctionapp.Tab2.Tab2Fragment;
 import com.hong_studio.myauctionapp.Tab3.Tab3Fragment;
 import com.hong_studio.myauctionapp.Tab4.Tab4Fragment;
+import com.kakao.sdk.common.util.Utility;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        String keyHash= Utility.INSTANCE.getKeyHash(this);
+//        Log.i("kakaokeyhash", keyHash);
 
         fragmentManager= getSupportFragmentManager();
         FragmentTransaction tran= fragmentManager.beginTransaction();
